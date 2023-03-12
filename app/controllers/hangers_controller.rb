@@ -1,0 +1,2 @@
+class HangersController < ApplicationController
+end
