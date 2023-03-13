@@ -1,6 +1,6 @@
 class Outfit < ApplicationRecord
     has_many :hangers 
-    has_many :users, through: hangers
+    has_many :users, through: :hangers
     has_many :outfit_items
 
     validates :name, uniqueness: true
