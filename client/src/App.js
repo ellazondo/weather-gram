@@ -109,17 +109,21 @@ useEffect( () => {
             <NavBar />
             <button onClick={onLogout}>Log Out</button>
             {`Welcome ${user.username}!`}
+
             <br/>
             
           </> :
+          <>
           <LoggedOutNavBar />
+                      
+</>
         }
 
 
     
       <Switch>
           <Route exact path="/">
-            <h1>Weather Gram</h1>
+            
           </Route>
           <Route path="/login">
             {
