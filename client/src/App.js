@@ -109,6 +109,7 @@ useEffect( () => {
             <NavBar />
             <button onClick={onLogout}>Log Out</button>
             {`Welcome ${user.username}!`}
+            <Feed defaultCity="New York" />
 
             <br/>
             

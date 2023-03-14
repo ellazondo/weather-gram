@@ -1,5 +1,5 @@
 export default function Users () {
     return (
-        <h1>empty</h1>
+        <h1>boo</h1>
     )
 }
