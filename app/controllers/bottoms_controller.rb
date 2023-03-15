@@ -1,0 +1,2 @@
+class BottomsController < ApplicationController
+end

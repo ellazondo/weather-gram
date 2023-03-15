@@ -1,7 +1,9 @@
 class Outfit < ApplicationRecord
     has_many :hangers 
     has_many :users, through: :hangers
-    has_many :outfit_items
+    has_one :top
+    has_one :bottom
+    has_one :shoe
 
     validates :name, uniqueness: true
     validates :temp, presence: true, inclusion: {in: 0..35} 

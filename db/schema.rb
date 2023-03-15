@@ -10,26 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_12_215139) do
+ActiveRecord::Schema.define(version: 2023_03_15_164824) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "hangers", force: :cascade do |t|
+  create_table "bottoms", force: :cascade do |t|
     t.integer "outfit_id"
-    t.integer "user_id"
+    t.string "bottom_name"
+    t.string "bottom_img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "outfit_items", force: :cascade do |t|
+  create_table "hangers", force: :cascade do |t|
     t.integer "outfit_id"
-    t.string "top_name"
-    t.string "top_img"
-    t.string "bottom_name"
-    t.string "bottom_img"
-    t.string "shoes_name"
-    t.string "shoes_img"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -42,6 +35,25 @@ ActiveRecord::Schema.define(version: 2023_03_12_215139) do
     t.string "city"
     t.string "outfit_img"
     t.string "created_by"
+    t.integer "top_id"
+    t.integer "bottom_id"
+    t.integer "shoe_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "shoes", force: :cascade do |t|
+    t.integer "outfit_id"
+    t.string "shoe_name"
+    t.string "shoe_img"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tops", force: :cascade do |t|
+    t.integer "outfit_id"
+    t.string "top_name"
+    t.string "top_img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

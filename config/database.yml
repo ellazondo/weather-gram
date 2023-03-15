@@ -14,16 +14,31 @@
 # Configure Using Gemfile
 # gem "pg"
 #
+
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
-  database: weather_gram_development
+  database: db/development.sqlite3
+
+# deleted this to get sqlite
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+
+
+
+# deleted this from development to get sqlite
+# development:
+  # <<: *default
+  # database: weather_gram_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

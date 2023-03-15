@@ -1,2 +1,0 @@
-class OutfitItemsController < ApplicationController
-end

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import OutfitList from "./OutfitList";
 // import Search from "./Search";
 
-export default function Fashion({weatherData}) {
+export default function Fashion({ weatherData }) {
   const [outfits, setOutfits] = useState([]);
   // const [searchTerm, setSearchTerm] = useState("");
 
@@ -19,6 +19,8 @@ export default function Fashion({weatherData}) {
   //   const updatedOutfitArray = [...outfits, newOutfit];
   //   setOutfits(updatedOutfitArray);
   // }
+
+  // console.log('outfits', outfits)
 
 
   return (

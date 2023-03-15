@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :tops
+  resources :bottoms
+  resources :shoes
   resources :outfit_items
   resources :hangers
   resources :users
@@ -8,6 +11,8 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   post "/login", to: "session#create"
   delete "/logout", to: "session#destroy"
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -8,6 +8,7 @@ import Users from './Users';
 import OutfitInspo from './OutfitInspo';
 import NavBar from './NavBar';
 import LoggedOutNavBar from './LoggedOutNavBar';
+import MyCloset from './MyCloset';
 
 
 export default function App() {
@@ -15,14 +16,17 @@ export default function App() {
   const [user, setUser] = useState(null)
   const [loginFormData, setLoginFormData] = useState({})
   const [signupFormData, setSignupFormData] = useState({})
-  const [outfits, setOutfits] = useState([])
+  
+  // const [outfits, setOutfits] = useState([])
 
 
-useEffect( () => {
-    fetch('http://127.0.0.1:3000/outfits')
-    .then(res=>res.json())
-    .then(outfitData => console.log(outfitData))
-},[])
+// useEffect( () => {
+//     fetch('http://127.0.0.1:3000/outfits')
+//     .then(res=>res.json())
+//     .then(outfitData => setOutfits(outfitData))
+// },[])
+
+//   console.log('outfits in closet', outfitsInCloset)
 
   function onLogin(event){
   console.log(loginFormData)
@@ -106,7 +110,7 @@ useEffect( () => {
         {
           user ?
           <>
-            <NavBar />
+            <NavBar onLogout={onLogout}/>
             <button onClick={onLogout}>Log Out</button>
             {`Welcome ${user.username}!`}
             <Feed defaultCity="New York" />
@@ -149,8 +153,8 @@ useEffect( () => {
           <Route path="/outfitinspo">
             {user ? <OutfitInspo /> : "Please log in to see outfit inspiration"}
           </Route>
-                    <Route path="/mycloset">
-            {user ? <Users /> : "Please log in to access your closet"}
+          <Route path="/mycloset">
+            {user ? <MyCloset /> : "Please log in to access your closet"}
           </Route>
         </Switch>
         </header>
