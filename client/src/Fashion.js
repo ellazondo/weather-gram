@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import OutfitList from "./OutfitList";
 // import Search from "./Search";
 
-export default function Fashion({ weatherData, outfits }) {
+export default function Fashion({ weatherData, outfits, onAddHanger, user }) {
   // const [outfits, setOutfits] = useState([]);
   // const [searchTerm, setSearchTerm] = useState("");
 
@@ -28,6 +28,8 @@ export default function Fashion({ weatherData, outfits }) {
       <OutfitList
         weatherData={weatherData}
         outfits={outfits}
+        onAddHanger={onAddHanger}
+        user={user}
       />
       
     </main>

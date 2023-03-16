@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     params.permit(:username, :password)
   end
 
-      def render_unprocessable_entity_response
-        render json: {errors: new_user.errors.full_messages}, status: :unprocessable_entity
+      def render_unprocessable_entity_response(exception)
+        render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
 end

@@ -5,7 +5,7 @@ import Fashion from "./Fashion";
 
 import WeatherInfo from "./WeatherInfo";
 
-export default function Feed({ outfits }) {
+export default function Feed({ outfits, onAddHanger, user }) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState("New York");
@@ -67,7 +67,7 @@ export default function Feed({ outfits }) {
       <WeatherInfo data={weatherData} />
       </div>
       <h1 className="mb-5 hero d-flex d-none d-md-block">What to wear today:</h1>
-      <Fashion outfits={outfits} weatherData={weatherData} />
+      <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
       </div>
     );
   } else { 

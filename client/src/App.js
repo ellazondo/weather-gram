@@ -16,8 +16,15 @@ export default function App() {
   const [user, setUser] = useState(null)
   const [loginFormData, setLoginFormData] = useState({})
   const [signupFormData, setSignupFormData] = useState({})
-  
   const [outfits, setOutfits] = useState([])
+  const [outfitsInCloset, setOutfitsInCloset] = useState([]);
+
+// fetching to the backend asking for all of the hangers
+  useEffect(() => {
+    fetch("http://localhost:3000/hangers")
+      .then((res) => res.json())
+      .then(Hangers => setOutfitsInCloset(Hangers));
+  }, []);
   
 
 
@@ -106,6 +113,11 @@ export default function App() {
     })
   }
 
+  function handleAddHanger(newHanger){
+    const updatedHangerArray = [...outfitsInCloset, newHanger];
+    setOutfitsInCloset(updatedHangerArray);
+  }
+
 
   return (
     
@@ -148,7 +160,7 @@ export default function App() {
             }
           </Route>
           <Route path="/todaysfeed">
-            {user ?  <Feed outfits={outfits} /> : "Please log in to view today's feed"}
+            {user ?  <Feed outfits={outfits} onAddHanger={handleAddHanger} user={user} /> : "Please log in to view today's feed"}
           </Route>
           <Route path="/users">
             {user ? <Users /> : "Please log in to see the users of Weather Gram"}
@@ -157,7 +169,7 @@ export default function App() {
             {user ? <OutfitInspo /> : "Please log in to see outfit inspiration"}
           </Route>
           <Route path="/mycloset">
-            {user ? <MyCloset /> : "Please log in to access your closet"}
+            {user ? <MyCloset outfitsInCloset={outfitsInCloset} /> : "Please log in to access your closet"}
           </Route>
         </Switch>
         </header>
