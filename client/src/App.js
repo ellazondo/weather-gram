@@ -17,14 +17,18 @@ export default function App() {
   const [loginFormData, setLoginFormData] = useState({})
   const [signupFormData, setSignupFormData] = useState({})
   
-  // const [outfits, setOutfits] = useState([])
+  const [outfits, setOutfits] = useState([])
+  
 
 
-// useEffect( () => {
-//     fetch('http://127.0.0.1:3000/outfits')
-//     .then(res=>res.json())
-//     .then(outfitData => setOutfits(outfitData))
-// },[])
+
+  useEffect(() => {
+    fetch("http://localhost:3000/outfits")
+      .then((r) => r.json())
+      .then((OutfitsArray) => {
+        setOutfits(OutfitsArray);
+      });
+  }, []);
 
 //   console.log('outfits in closet', outfitsInCloset)
 
@@ -113,7 +117,6 @@ export default function App() {
             <NavBar onLogout={onLogout}/>
             <button onClick={onLogout}>Log Out</button>
             {`Welcome ${user.username}!`}
-            <Feed defaultCity="New York" />
 
             <br/>
             
@@ -127,9 +130,9 @@ export default function App() {
 
     
       <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             
-          </Route>
+          </Route> */}
           <Route path="/login">
             {
               user ?
@@ -145,7 +148,7 @@ export default function App() {
             }
           </Route>
           <Route path="/todaysfeed">
-            {user ?  <Feed /> : "Please log in to view today's feed"}
+            {user ?  <Feed outfits={outfits} /> : "Please log in to view today's feed"}
           </Route>
           <Route path="/users">
             {user ? <Users /> : "Please log in to see the users of Weather Gram"}

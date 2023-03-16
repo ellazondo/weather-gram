@@ -11,8 +11,11 @@ const [outfitsInCloset, setOutfitsInCloset] = useState([]);
       .then(Hangers => setOutfitsInCloset(Hangers));
   }, []);
 
+
     return (
+        <>
         <ClosetList outfitsInCloset={outfitsInCloset} />
+        </>
         
     )
 }

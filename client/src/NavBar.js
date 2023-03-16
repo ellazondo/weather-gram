@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function NavBar({onLogout}){
     return (
@@ -15,10 +15,15 @@ export default function NavBar({onLogout}){
         </svg>
       </a>
       <ul class="hidden xl:flex font-semibold font-heading">
-        <li class="mr-12"><a class="hover:text-gray-600" href="/">Today's Feed</a></li>
-        <li class="mr-12"><a class="hover:text-gray-600" href="/outfitinspo">Inspo</a></li>
-        <li class="mr-12"><a class="hover:text-gray-600" href="/mycloset">My Closet</a></li>
-        <li><a class="hover:text-gray-600" href="/users">@Users</a></li>
+        {/* <li class="mr-12"><a class="hover:text-gray-600" href="/">Today's Feed</a></li> */}
+         <Link to="/todaysfeed">Today's Feed</Link>
+        {/* <li class="mr-12"><a class="hover:text-gray-600" href="/outfitinspo">Inspo</a></li> */}
+        <Link to="/outfitinspo">Inspo Page</Link>
+        {/* <li class="mr-12"><a class="hover:text-gray-600" href="/mycloset">My Closet</a></li> */}
+        <Link to="/mycloset">My Closet</Link>
+        {/* <li><a class="hover:text-gray-600" href="/users">@Users</a></li> */}
+            <Link to="/users">Users </Link>
+            
       </ul>
       <a class="flex-shrink-0 xl:mx-auto text-3xl font-bold font-heading" href="#">
         <img class="h-9" src="https://i.imgur.com/0oK5L6N.png" alt="" width="auto" />
@@ -107,9 +112,5 @@ export default function NavBar({onLogout}){
 }
 
         {/* <>
-            <Link to="/">Today's Feed</Link>
-            <Link to="/outfitinspo">Inspo Page</Link>
-            <Link to="/mycloset">My Closet</Link>
-            <Link to="/users">Users </Link>
-            <Link to="/logout">Logout </Link>
+
         </> */}

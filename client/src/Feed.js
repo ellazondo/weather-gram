@@ -5,10 +5,10 @@ import Fashion from "./Fashion";
 
 import WeatherInfo from "./WeatherInfo";
 
-export default function Feed(props) {
+export default function Feed({ outfits }) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({});
-  const [city, setCity] = useState(props.defaultCity);
+  const [city, setCity] = useState("New York");
 
   function handleResponse (response) {
     
@@ -67,7 +67,7 @@ export default function Feed(props) {
       <WeatherInfo data={weatherData} />
       </div>
       <h1 className="mb-5 hero d-flex d-none d-md-block">What to wear today:</h1>
-      <Fashion weatherData={weatherData} />
+      <Fashion outfits={outfits} weatherData={weatherData} />
       </div>
     );
   } else { 
