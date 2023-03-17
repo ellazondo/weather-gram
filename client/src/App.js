@@ -118,6 +118,37 @@ export default function App() {
     setOutfitsInCloset(updatedHangerArray);
   }
 
+    function onAddOutfit(newOutfit) {
+    const updatedOutfitArray = [...outfits, newOutfit];
+    setOutfits(updatedOutfitArray); 
+    //how do I create a new hanger using the current user id 
+    //and the outfit_id of the outfit that was just created
+    //from the updatedOutfitArray
+    const newOutfitIndex = updatedOutfitArray.length -1;
+    fetch("http://localhost:3000/hangers" , {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+        body: JSON.stringify({
+        outfit_id: updatedOutfitArray[newOutfitIndex].id, 
+        user_id: user.id
+      })
+    })
+  .then(r=> r.json())
+  .then((newHanger) => setOutfitsInCloset(newHanger))
+    
+  }
+
+  function handleDelete (id) {
+      // console.log(id)
+      fetch(`http://localhost:3000/hangers/${id}`, {
+      method: 'DELETE',
+    });
+  }
+
+
+
 
   return (
     
@@ -169,7 +200,7 @@ export default function App() {
             {user ? <OutfitInspo /> : "Please log in to see outfit inspiration"}
           </Route>
           <Route path="/mycloset">
-            {user ? <MyCloset outfitsInCloset={outfitsInCloset} /> : "Please log in to access your closet"}
+            {user ? <MyCloset outfitsInCloset={outfitsInCloset} onAddOutfit={onAddOutfit} handleDelete={handleDelete} /> : "Please log in to access your closet"}
           </Route>
         </Switch>
         </header>

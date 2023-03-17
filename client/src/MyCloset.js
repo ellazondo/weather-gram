@@ -1,22 +1,22 @@
 import ClosetList from './ClosetList';
+import NewOutfitForm from './NewOutfitForm';
 // import { useState, useEffect } from 'react';
 
-export default function MyCloset({outfitsInCloset}) {
-// const [outfitsInCloset, setOutfitsInCloset] = useState([]);
+export default function MyCloset({outfitsInCloset, onAddOutfit, handleDelete}) {
+
 console.log('outfits in closet', outfitsInCloset)
-// // fetching to the backend asking for all of the hangers
-//   useEffect(() => {
-//     fetch("http://localhost:3000/hangers")
-//       .then((res) => res.json())
-//       .then(Hangers => setOutfitsInCloset(Hangers));
-//   }, []);
+
+
 
 
     return (
         <>
+        <h1>My CLOSET</h1>
         <ClosetList
         key={outfitsInCloset.id} 
-        outfitsInCloset={outfitsInCloset} />
+        outfitsInCloset={outfitsInCloset}
+        handleDelete={handleDelete} />
+        <NewOutfitForm onAddOutfit={onAddOutfit} />
         </>
         
     )

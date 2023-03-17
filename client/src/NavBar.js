@@ -99,10 +99,14 @@ export default function NavBar({onLogout}){
       </div>
       <input class="block mb-10 py-5 px-8 bg-gray-100 rounded-md border-transparent focus:ring-blue-300 focus:border-blue-300 focus:outline-none" type="search" placeholder="Search" />
       <ul class="text-3xl font-bold font-heading">
-        <li class="mb-8"><a href="#">Today's Feed</a></li>
-        <li class="mb-8"><a href="#">Inspo</a></li>
-        <li class="mb-8"><a href="#">My Closet</a></li>
-        <li><a href="#">@Users</a></li>
+        {/* {/* <li class="mb-8"><a href="#">Today's Feed</a></li> */}
+        <Link to="/todaysfeed">Today's Feed</Link>
+        {/* <li class="mb-8"><a href="#">Inspo</a></li> */}
+        <Link to="/outfitinspo">Inspo Page</Link>
+        {/* <li class="mb-8"><a href="#">My Closet</a></li> */}
+         <Link to="/mycloset">My Closet</Link>
+        {/* <li><a href="#">@Users</a></li>  */}
+        <Link to="/users">Users </Link>
       </ul>
     </nav>
   </div>
@@ -111,6 +115,8 @@ export default function NavBar({onLogout}){
     )
 }
 
-        {/* <>
+          
+        
+        
 
-        </> */}
+            

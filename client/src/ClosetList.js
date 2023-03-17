@@ -1,7 +1,7 @@
 import React from "react";
 import ClosetCard from "./ClosetCard";
 
-export default function ClosetList({ outfitsInCloset }) {
+export default function ClosetList({ outfitsInCloset, handleDelete }) {
   return (
     <ul className="cards">
       {outfitsInCloset?.map((outfitInCloset) => {
@@ -13,6 +13,7 @@ export default function ClosetList({ outfitsInCloset }) {
           <ClosetCard
             key={outfitInCloset.id}
             outfitInCloset={outfitInCloset}
+            handleDelete={handleDelete}
           />
           
         );
