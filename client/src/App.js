@@ -147,6 +147,17 @@ export default function App() {
     });
   }
 
+   function handleUpdateOutfitInCloset(updatedOutfitInCloset) {
+        const updatedOutfitsInClosetArray = outfits.map((outfit) => {
+            if (outfit.id === updatedOutfitInCloset.id) {
+                return updatedOutfitInCloset;
+                } else {
+                    return outfit;
+                }
+            });
+    setOutfitsInCloset(updatedOutfitsInClosetArray);
+  }
+
 
 
 
@@ -200,7 +211,7 @@ export default function App() {
             {user ? <OutfitInspo /> : "Please log in to see outfit inspiration"}
           </Route>
           <Route path="/mycloset">
-            {user ? <MyCloset outfitsInCloset={outfitsInCloset} onAddOutfit={onAddOutfit} handleDelete={handleDelete} /> : "Please log in to access your closet"}
+            {user ? <MyCloset outfitsInCloset={outfitsInCloset} onAddOutfit={onAddOutfit} handleDelete={handleDelete} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "Please log in to access your closet"}
           </Route>
         </Switch>
         </header>
