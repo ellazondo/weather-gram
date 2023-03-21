@@ -12,6 +12,13 @@ class OutfitsController < ApplicationController
         render json: outfit
     end
 
+    def update
+        outfit = Outfit.find(params[:id])
+        outfit.update!(outfit_params)
+        render json: outfit 
+
+    end
+
     def create 
         new_outfit = Outfit.create!(outfit_params)
         render json: new_outfit, status: :created
