@@ -14,21 +14,41 @@ export default function UpdateOutfitInCloset ( {id, onUpdateOutfitInCloset} ) {
         created_by: ''
     })
 
+    //maybe I need to change the PATCH to actually Patch the
+    //outfits. So you can grab the id of the outfit from
+    //the closet and then patch the id of the outfit
     function handleUpdateOutfitInCloset(e, id) {
     e.preventDefault();
+    //this console.log is targeting the correct id but I am
+    //still getting an error 404 not found
     console.log(id)
-    fetch(`http://localhost:6001/hangers/${id}`, {
+    fetch(`http://localhost:3000/outfits/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ updatedOutfitInCloset }),
+      body: JSON.stringify(updatedOutfitInCloset),
     })
       .then((r) => r.json())
-      .then((updatedOutfitInCloset) => {
-        onUpdateOutfitInCloset(updatedOutfitInCloset);
+      .then((updatedOutfit) => {
+        onUpdateOutfitInCloset(updatedOutfit);
       });
   }
+  //   function handleUpdateOutfitInCloset(e, id) {
+  //   e.preventDefault();
+  //   console.log(id)
+  //   fetch(`http://localhost:3000/hangers/${id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(updatedOutfitInCloset),
+  //   })
+  //     .then((r) => r.json())
+  //     .then((updatedOutfitInCloset) => {
+  //       onUpdateOutfitInCloset(updatedOutfitInCloset);
+  //     });
+  // }
  
 
     return (
@@ -73,19 +93,19 @@ export default function UpdateOutfitInCloset ( {id, onUpdateOutfitInCloset} ) {
           type="text"
           name="image"
           placeholder="change Image URL .jpg"
-          value={updatedOutfitInCloset.img}
-          onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, img: e.target.value})}
+          value={updatedOutfitInCloset.outfit_img}
+          onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, outfit_img: e.target.value})}
         />
         <input
           type="text"
           name="created_by"
           placeholder="change your username"
-          value={updatedOutfitInCloset.createdBy}
-          onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, createdBy: e.target.value})}
+          value={updatedOutfitInCloset.created_by}
+          onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, created_by: e.target.value})}
         />
 
   
-        <button type="submit">Add Outfit</button>
+        <button type="submit">Update Outfit</button>
       </form>
     )
 }

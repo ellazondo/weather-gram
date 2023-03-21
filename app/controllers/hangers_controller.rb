@@ -17,6 +17,12 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         render json: new_hanger, status: :created
     end
 
+    def update
+        hanger = Hanger.find(params[:id])
+        hanger.update!(hanger_params)
+        render json: hanger
+    end
+
     def destroy
         hanger = Hanger.find(params[:id])
         hanger.destroy

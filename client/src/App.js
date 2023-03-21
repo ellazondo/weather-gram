@@ -128,9 +128,6 @@ export default function App() {
     console.log('new outfit', newOutfit)
     const updatedOutfitArray = [...outfits, newOutfit];
     setOutfits(updatedOutfitArray); 
-    // const newOutfitIndex = updatedOutfitArray.length +1;
-    // const newHangerIndex = outfitsInCloset.length +1;
-    // console.log('trying id', updatedHangerArray[newOutfitIndex].id) 
     fetch("http://localhost:3000/hangers" , {
       method: "POST",
       headers: {
@@ -142,7 +139,7 @@ export default function App() {
       })
     })
   .then(r=> r.json())
-  .then((newHanger) => setOutfitsInCloset(newHanger))
+  .then((newHanger) => setOutfitsInCloset([...outfitsInCloset, newHanger]))
     
   }
 
@@ -153,15 +150,16 @@ export default function App() {
     });
   }
 
-   function handleUpdateOutfitInCloset(updatedOutfitInCloset) {
+   function handleUpdateOutfitInCloset(updatedOutfit) {
         const updatedOutfitsInClosetArray = outfits.map((outfit) => {
-            if (outfit.id === updatedOutfitInCloset.id) {
-                return updatedOutfitInCloset;
+            if (outfit.id === updatedOutfit.id) {
+                return updatedOutfit;
                 } else {
                     return outfit;
                 }
             });
-    setOutfitsInCloset(updatedOutfitsInClosetArray);
+            console.log(updatedOutfitsInClosetArray)
+    setOutfits(updatedOutfitsInClosetArray);
   }
 
 

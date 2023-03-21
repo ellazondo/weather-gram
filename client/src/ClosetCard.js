@@ -2,19 +2,11 @@ import React from "react";
 import UpdateOutfitInCloset from './UpdateOutfitInCloset';
 
 export default function ClosetCard({ onUpdateOutfitInCloset, handleDelete, outfitInCloset }) {
-//   console.log('outfit in closet', outfitInCloset.id)
-const { name, temp, outfit_img } = outfitInCloset.outfit;
+  //this console.log is working but i keep getting an error 
+  //saying that line 22 is incorrect
+  // console.log('outfit in closet', outfitInCloset.outfit.id)
+const { name, temp, outfit_img } = outfitInCloset.outfit || {};
 
-  //  function handleUpdateOutfitInCloset(updatedOutfitInCloset) {
-  //       const updatedOutfitInClosetArray = outfitInCloset.map((plant) => {
-  //           if (plant.id === updatedPlant.id) {
-  //               return updatedPlant;
-  //               } else {
-  //                   return plant;
-  //               }
-  //           });
-  //   setOutfitInCloset(updatedOutfitInClosetArray);
-  // }
  
 
 
@@ -27,6 +19,7 @@ const { name, temp, outfit_img } = outfitInCloset.outfit;
         handleDelete(outfitInCloset.id)
       }} >Delete</button>
       <UpdateOutfitInCloset 
+      id = {outfitInCloset.outfit?.id}
       onUpdateOutfitInCloset={onUpdateOutfitInCloset} />
     </li>
   );
