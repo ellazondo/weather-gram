@@ -12,7 +12,7 @@ const { name, temp, outfit_img } = outfitInCloset.outfit || {};
 
   return (
     <li className="card">
-      <img src={outfit_img} alt={name} />
+      <img className="h-60 transform group-hover:-translate-y-5 transition ease-in-out duration-1000 mb-4 rounded-4xl object-cover" src={outfit_img} alt={name} />
       <h4>{name}</h4>
       <p>Suggested Temperature: {temp} °F</p>
       <button onClick={() => {
@@ -24,3 +24,4 @@ const { name, temp, outfit_img } = outfitInCloset.outfit || {};
     </li>
   );
 }
+

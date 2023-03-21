@@ -18,6 +18,7 @@ export default function App() {
   const [signupFormData, setSignupFormData] = useState({})
   const [outfits, setOutfits] = useState([])
   const [outfitsInCloset, setOutfitsInCloset] = useState([]);
+  const [wgUsers, setWgUsers] = useState([])
 
 // fetching to the backend asking for all of the hangers
   useEffect(() => {
@@ -26,7 +27,12 @@ export default function App() {
       .then(Hangers => setOutfitsInCloset(Hangers));
   }, []);
   
-
+// fetching to the backend asking for all of the users
+  useEffect(() => {
+    fetch("http://localhost:3000/users")
+      .then((res) => res.json())
+      .then(WGUserData => setWgUsers(WGUserData));
+  }, []);
 
 
   useEffect(() => {
@@ -209,10 +215,10 @@ export default function App() {
             {user ?  <Feed outfits={outfits} onAddHanger={handleAddHanger} user={user} /> : "Please log in to view today's feed"}
           </Route>
           <Route path="/users">
-            {user ? <Users /> : "Please log in to see the users of Weather Gram"}
+            {user ? <Users wgUsers={wgUsers} /> : "Please log in to see the users of Weather Gram"}
           </Route>
           <Route path="/outfitinspo">
-            {user ? <OutfitInspo /> : "Please log in to see outfit inspiration"}
+            {user ? <OutfitInspo outfits={outfits} /> : "Please log in to see outfit inspiration"}
           </Route>
           <Route path="/mycloset">
             {user ? <MyCloset outfitsInCloset={outfitsInCloset} onAddOutfit={onAddOutfit} handleDelete={handleDelete} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "Please log in to access your closet"}

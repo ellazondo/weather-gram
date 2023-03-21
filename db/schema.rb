@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 2023_03_15_164824) do
 
   create_table "bottoms", force: :cascade do |t|
-    t.integer "outfit_id"
     t.string "bottom_name"
     t.string "bottom_img"
+    t.string "zalando_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,17 +43,17 @@ ActiveRecord::Schema.define(version: 2023_03_15_164824) do
   end
 
   create_table "shoes", force: :cascade do |t|
-    t.integer "outfit_id"
     t.string "shoe_name"
     t.string "shoe_img"
+    t.string "zalando_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tops", force: :cascade do |t|
-    t.integer "outfit_id"
     t.string "top_name"
     t.string "top_img"
+    t.string "zalando_link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2023_03_15_164824) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "profile_pic"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
