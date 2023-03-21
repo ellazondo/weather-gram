@@ -37,10 +37,12 @@ export default function App() {
       });
   }, []);
 
-//   console.log('outfits in closet', outfitsInCloset)
+
+
+  // console.log('outfits in closet', outfitsInCloset)
 
   function onLogin(event){
-  console.log(loginFormData)
+  // console.log(loginFormData)
     event.preventDefault()
     fetch("/login", {
       method: "POST",
@@ -113,25 +115,29 @@ export default function App() {
     })
   }
 
+  //This is in response to clicking Add To Closet
   function handleAddHanger(newHanger){
     const updatedHangerArray = [...outfitsInCloset, newHanger];
     setOutfitsInCloset(updatedHangerArray);
   }
 
-    function onAddOutfit(newOutfit) {
+//this is in response to filling out and submiting a new outfit form
+//It will add the outfit to /todaysfeed
+//adding it to /mycloset isn't working
+  function onAddOutfit(newOutfit) {
+    console.log('new outfit', newOutfit)
     const updatedOutfitArray = [...outfits, newOutfit];
     setOutfits(updatedOutfitArray); 
-    //how do I create a new hanger using the current user id 
-    //and the outfit_id of the outfit that was just created
-    //from the updatedOutfitArray
-    const newOutfitIndex = updatedOutfitArray.length -1;
+    // const newOutfitIndex = updatedOutfitArray.length +1;
+    // const newHangerIndex = outfitsInCloset.length +1;
+    // console.log('trying id', updatedHangerArray[newOutfitIndex].id) 
     fetch("http://localhost:3000/hangers" , {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
         body: JSON.stringify({
-        outfit_id: updatedOutfitArray[newOutfitIndex].id, 
+        outfit_id: newOutfit.id,
         user_id: user.id
       })
     })

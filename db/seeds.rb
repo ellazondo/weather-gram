@@ -17,8 +17,12 @@ Outfit.create(name: "Purple Puff", temp: 3 , rain: false, occasion: "Streetwear"
 Outfit.create(name: "Fun in Pink", temp: 19, rain: false, occasion: "Streetwear", city: "Amsterdam", outfit_img: "https://img01.ztat.net/outfit/ebe1b6769b3b48baa83f778257354a69/bba7efdfe0d14a5d9c3a00e714a65366.jpg?imwidth=1000", created_by: "tessavmontfoord")
 
 
-Hanger.create(outfit_id: 29, user_id: 25)
-Hanger.create(outfit_id: 26, user_id: 25)
-Hanger.create(outfit_id: 25, user_id: 25)
+Hanger.create(outfit_id: 6, user_id: 1)
+Hanger.create(outfit_id: 3, user_id: 1)
+Hanger.create(outfit_id: 4, user_id: 1)
+
+ActiveRecord::Base.connection.tables.each do |table|
+  ActiveRecord::Base.connection.reset_pk_sequence!(table)
+end
 
 

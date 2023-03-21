@@ -4,7 +4,7 @@ import NewOutfitForm from './NewOutfitForm';
 
 export default function MyCloset({outfitsInCloset, onAddOutfit, handleDelete, onUpdateOutfitInCloset}) {
 
-console.log('outfits in closet', outfitsInCloset)
+// console.log('outfits in closet', outfitsInCloset)
 
 
 

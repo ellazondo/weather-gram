@@ -1,20 +1,22 @@
 import { useState } from 'react';
 
 export default function UpdateOutfitInCloset ( {id, onUpdateOutfitInCloset} ) {
+
+    // const { name, temp, rain, occasion, city, outfit_img, created_by } = outfit
     
     const [updatedOutfitInCloset, setUpdatedOutfitInCloset] = useState({
         name: '',
         temp: '',
         rain: '',
         occasion: '',
-        occasion: '',
         city: '',
-        img: '',
-        createdBy: ''
+        outfit_img: '',
+        created_by: ''
     })
 
-    function handleUpdateOutfitInCloset(e) {
+    function handleUpdateOutfitInCloset(e, id) {
     e.preventDefault();
+    console.log(id)
     fetch(`http://localhost:6001/hangers/${id}`, {
       method: "PATCH",
       headers: {
@@ -30,7 +32,7 @@ export default function UpdateOutfitInCloset ( {id, onUpdateOutfitInCloset} ) {
  
 
     return (
-        <form onSubmit={handleUpdateOutfitInCloset}>
+        <form onSubmit={(e) => handleUpdateOutfitInCloset(e, id)}>
         <input
           type="text"
           name="name"
