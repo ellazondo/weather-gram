@@ -14,13 +14,9 @@ export default function UpdateOutfitInCloset ( {id, onUpdateOutfitInCloset} ) {
         created_by: ''
     })
 
-    //maybe I need to change the PATCH to actually Patch the
-    //outfits. So you can grab the id of the outfit from
-    //the closet and then patch the id of the outfit
+    
     function handleUpdateOutfitInCloset(e, id) {
     e.preventDefault();
-    //this console.log is targeting the correct id but I am
-    //still getting an error 404 not found
     console.log(id)
     fetch(`http://localhost:3000/outfits/${id}`, {
       method: "PATCH",
@@ -34,21 +30,7 @@ export default function UpdateOutfitInCloset ( {id, onUpdateOutfitInCloset} ) {
         onUpdateOutfitInCloset(updatedOutfit);
       });
   }
-  //   function handleUpdateOutfitInCloset(e, id) {
-  //   e.preventDefault();
-  //   console.log(id)
-  //   fetch(`http://localhost:3000/hangers/${id}`, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(updatedOutfitInCloset),
-  //   })
-  //     .then((r) => r.json())
-  //     .then((updatedOutfitInCloset) => {
-  //       onUpdateOutfitInCloset(updatedOutfitInCloset);
-  //     });
-  // }
+ 
  
 
     return (

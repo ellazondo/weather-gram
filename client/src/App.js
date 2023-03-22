@@ -17,14 +17,14 @@ export default function App() {
   const [loginFormData, setLoginFormData] = useState({})
   const [signupFormData, setSignupFormData] = useState({})
   const [outfits, setOutfits] = useState([])
-  const [outfitsInCloset, setOutfitsInCloset] = useState([]);
+  const [hangersInCloset, setHangersInCloset] = useState([]);
   const [wgUsers, setWgUsers] = useState([])
 
 // fetching to the backend asking for all of the hangers
   useEffect(() => {
     fetch("http://localhost:3000/hangers")
       .then((res) => res.json())
-      .then(Hangers => setOutfitsInCloset(Hangers));
+      .then(Hangers => setHangersInCloset(Hangers));
   }, []);
   
 // fetching to the backend asking for all of the users
@@ -45,7 +45,7 @@ export default function App() {
 
 
 
-  // console.log('outfits in closet', outfitsInCloset)
+  // console.log('outfits in closet', hangersInCloset)
 
   function onLogin(event){
   // console.log(loginFormData)
@@ -123,8 +123,8 @@ export default function App() {
 
   //This is in response to clicking Add To Closet
   function handleAddHanger(newHanger){
-    const updatedHangerArray = [...outfitsInCloset, newHanger];
-    setOutfitsInCloset(updatedHangerArray);
+    const updatedHangerArray = [...hangersInCloset, newHanger];
+    setHangersInCloset(updatedHangerArray);
   }
 
 //this is in response to filling out and submiting a new outfit form
@@ -145,7 +145,7 @@ export default function App() {
       })
     })
   .then(r=> r.json())
-  .then((newHanger) => setOutfitsInCloset([...outfitsInCloset, newHanger]))
+  .then((newHanger) => setHangersInCloset([...hangersInCloset, newHanger]))
     
   }
 
@@ -157,15 +157,15 @@ export default function App() {
   }
 
    function handleUpdateOutfitInCloset(updatedOutfit) {
-        const updatedOutfitsInClosetArray = outfits.map((outfit) => {
+        const updatedhangersInClosetArray = outfits.map((outfit) => {
             if (outfit.id === updatedOutfit.id) {
                 return updatedOutfit;
                 } else {
                     return outfit;
                 }
             });
-            console.log(updatedOutfitsInClosetArray)
-    setOutfits(updatedOutfitsInClosetArray);
+            console.log(updatedhangersInClosetArray)
+    setOutfits(updatedhangersInClosetArray);
   }
 
 
@@ -221,7 +221,7 @@ export default function App() {
             {user ? <OutfitInspo outfits={outfits} /> : "Please log in to see outfit inspiration"}
           </Route>
           <Route path="/mycloset">
-            {user ? <MyCloset outfitsInCloset={outfitsInCloset} onAddOutfit={onAddOutfit} handleDelete={handleDelete} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "Please log in to access your closet"}
+            {user ? <MyCloset user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} handleDelete={handleDelete} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "Please log in to access your closet"}
           </Route>
         </Switch>
         </header>

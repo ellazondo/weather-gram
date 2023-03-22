@@ -2,7 +2,7 @@ User.destroy_all
 Outfit.destroy_all
 Hanger.destroy_all
 
-User.create(username: "ellazondo", password: "e123", profile_pic: "blob:https://web.whatsapp.com/4c77c505-fc7d-4659-b019-d5afc834e0f5")
+User.create(username: "ellazondo", password: "e123", profile_pic: "https://i.imgur.com/05wdUxR.jpeg")
 User.create(username: "tessavmontfoord", password: "t123", profile_pic: "https://img01.ztat.net/creator/245b38b3b03a4fc0a2f0627ab4539101/8ebd4ccb3efc49b1ac111ee1fc86b924.jpg")
 User.create(username: "amaka.hamelijnck", password: "a123", profile_pic: "https://img.wattpad.com/5b05ef6ede11359ab9c0943981b9c464bdc32957/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f7166564b546a4b6b6a4f704946413d3d2d313031363332323332332e313665373561376536326630383738613230373839393937333333392e6a7067")
 User.create(username: "holliemercedes", password: "h123", profile_pic: "https://1.bp.blogspot.com/-hZ2eI74LRJw/YYFnxotgcaI/AAAAAAAAp_0/_dWS4Vu1zBUs1UkmKlRvVkNBTN_Luj9VACLcBGAsYHQ/s691/hollie-mercedes.jpg")

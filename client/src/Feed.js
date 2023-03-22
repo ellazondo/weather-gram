@@ -2,7 +2,6 @@ import React, { useState } from "react";
 // import "./Weather.css";
 import axios from "axios";
 import Fashion from "./Fashion";
-
 import WeatherInfo from "./WeatherInfo";
 
 export default function Feed({ outfits, onAddHanger, user }) {

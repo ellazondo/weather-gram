@@ -1,21 +1,26 @@
 import React from "react";
 import ClosetCard from "./ClosetCard";
 
-export default function ClosetList({ outfitsInCloset, handleDelete, onUpdateOutfitInCloset }) {
+export default function ClosetList({ user, hangersInCloset, handleDelete, onUpdateOutfitInCloset }) {
+  
+  
   return (
+    
     <ul className="cards">
-      {outfitsInCloset?.map((outfitInCloset) => {
+      {hangersInCloset?.map((hangerInCloset) => {
         
-        // console.log('closet list', outfitInCloset)
+        
     
         return (
         
           <ClosetCard
-            key={outfitInCloset.id}
-            outfitInCloset={outfitInCloset}
+            user={user}
+            key={hangerInCloset.id}
+            hangerInCloset={hangerInCloset}
             handleDelete={handleDelete}
             onUpdateOutfitInCloset={onUpdateOutfitInCloset}
           />
+         
           
         );
         
@@ -25,5 +30,3 @@ export default function ClosetList({ outfitsInCloset, handleDelete, onUpdateOutf
   );
 }
 
-//took away:
-// {outfitsInCloset?.map((outfitInCloset) => {
