@@ -2,7 +2,7 @@ import ClosetList from './ClosetList';
 import NewOutfitForm from './NewOutfitForm';
 // import { useState, useEffect } from 'react';
 
-export default function MyCloset({user, hangersInCloset, onAddOutfit, handleDelete, onUpdateOutfitInCloset}) {
+export default function MyCloset({user, hangersInCloset, onAddOutfit, setHangersInCloset, onUpdateOutfitInCloset}) {
 
 
 
@@ -14,7 +14,7 @@ export default function MyCloset({user, hangersInCloset, onAddOutfit, handleDele
         user={user}
         key={hangersInCloset.id} 
         hangersInCloset={hangersInCloset}
-        handleDelete={handleDelete}
+        setHangersInCloset={setHangersInCloset}
         onUpdateOutfitInCloset={onUpdateOutfitInCloset} />
         <NewOutfitForm onAddOutfit={onAddOutfit} />
         </>

@@ -1,7 +1,7 @@
 import React from "react";
 import ClosetCard from "./ClosetCard";
 
-export default function ClosetList({ user, hangersInCloset, handleDelete, onUpdateOutfitInCloset }) {
+export default function ClosetList({ user, hangersInCloset, setHangersInCloset, onUpdateOutfitInCloset }) {
   
   
   return (
@@ -17,7 +17,7 @@ export default function ClosetList({ user, hangersInCloset, handleDelete, onUpda
             user={user}
             key={hangerInCloset.id}
             hangerInCloset={hangerInCloset}
-            handleDelete={handleDelete}
+            setHangersInCloset={setHangersInCloset}
             onUpdateOutfitInCloset={onUpdateOutfitInCloset}
           />
          

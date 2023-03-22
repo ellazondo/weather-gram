@@ -148,13 +148,16 @@ export default function App() {
   .then((newHanger) => setHangersInCloset([...hangersInCloset, newHanger]))
     
   }
-
-  function handleDelete (id) {
-      // console.log(id)
-      fetch(`http://localhost:3000/hangers/${id}`, {
-      method: 'DELETE',
-    });
-  }
+//moving to closet card. delting all of the props that include handledelete. Instead sending set HangersInCloset as prop
+  // function handleDelete (id) {
+  //     // console.log(id)
+  //     fetch(`http://localhost:3000/hangers/${id}`, {
+  //     method: 'DELETE',
+  //   })
+  //   .then(() => {
+  //     setHangersInCloset(hangersInCloset => hangersInCloset.filter(hanger=> hanger.id !== hangersInCloset.id))
+  //   })
+  // }
 
    function handleUpdateOutfitInCloset(updatedOutfit) {
         const updatedhangersInClosetArray = outfits.map((outfit) => {
@@ -178,9 +181,9 @@ export default function App() {
         {
           user ?
           <>
-            <NavBar onLogout={onLogout}/>
-            <button onClick={onLogout}>Log Out</button>
-            {`Welcome ${user.username}!`}
+            <NavBar user={user} onLogout={onLogout}/>
+            {/* <button onClick={onLogout}>Log Out</button>
+            {`Welcome ${user.username}!`} */}
 
             <br/>
             
@@ -221,7 +224,7 @@ export default function App() {
             {user ? <OutfitInspo outfits={outfits} /> : "Please log in to see outfit inspiration"}
           </Route>
           <Route path="/mycloset">
-            {user ? <MyCloset user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} handleDelete={handleDelete} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "Please log in to access your closet"}
+            {user ? <MyCloset user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "Please log in to access your closet"}
           </Route>
         </Switch>
         </header>
