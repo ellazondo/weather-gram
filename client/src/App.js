@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Feed from './Feed';
 import Signup from './Signup';
 import Login from './Login';
@@ -9,6 +9,7 @@ import OutfitInspo from './OutfitInspo';
 import NavBar from './NavBar';
 import LoggedOutNavBar from './LoggedOutNavBar';
 import MyCloset from './MyCloset';
+import Home from './Home';
 
 
 export default function App() {
@@ -148,16 +149,7 @@ export default function App() {
   .then((newHanger) => setHangersInCloset([...hangersInCloset, newHanger]))
     
   }
-//moving to closet card. delting all of the props that include handledelete. Instead sending set HangersInCloset as prop
-  // function handleDelete (id) {
-  //     // console.log(id)
-  //     fetch(`http://localhost:3000/hangers/${id}`, {
-  //     method: 'DELETE',
-  //   })
-  //   .then(() => {
-  //     setHangersInCloset(hangersInCloset => hangersInCloset.filter(hanger=> hanger.id !== hangersInCloset.id))
-  //   })
-  // }
+
 
    function handleUpdateOutfitInCloset(updatedOutfit) {
         const updatedhangersInClosetArray = outfits.map((outfit) => {
@@ -182,8 +174,6 @@ export default function App() {
           user ?
           <>
             <NavBar user={user} onLogout={onLogout}/>
-            {/* <button onClick={onLogout}>Log Out</button>
-            {`Welcome ${user.username}!`} */}
 
             <br/>
             
@@ -197,21 +187,21 @@ export default function App() {
 
     
       <Switch>
-          {/* <Route exact path="/">
-            
-          </Route> */}
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/login">
             {
               user ?
-              null : 
-              <Login onLogin={onLogin} updateLoginFormData={updateLoginFormData}/>
+              <Home />  : 
+              <Login onLogin={onLogin} updateLoginFormData={updateLoginFormData}  />
             }
           </Route>
           <Route path="/signup">
             {
               user ?
               "Please log out before signing up for an account" :
-              <Signup onSignup={onSignup} updateSignupFormData={updateSignupFormData} />
+              <Signup onSignup={onSignup} updateSignupFormData={updateSignupFormData}  />
             }
           </Route>
           <Route path="/todaysfeed">
@@ -221,7 +211,7 @@ export default function App() {
             {user ? <Users wgUsers={wgUsers} /> : "Please log in to see the users of Weather Gram"}
           </Route>
           <Route path="/outfitinspo">
-            {user ? <OutfitInspo outfits={outfits} /> : "Please log in to see outfit inspiration"}
+            {user ? <OutfitInspo outfits={outfits} user={user} /> : "Please log in to see outfit inspiration"}
           </Route>
           <Route path="/mycloset">
             {user ? <MyCloset user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "Please log in to access your closet"}

@@ -3,7 +3,7 @@ import UpdateOutfitInCloset from './UpdateOutfitInCloset';
 
 export default function ClosetCard({ user, onUpdateOutfitInCloset, setHangersInCloset, hangerInCloset }) {
  
-console.log('hanger in closet', hangerInCloset)
+// console.log('hanger in closet', hangerInCloset)
 const { name, temp, outfit_img } = hangerInCloset.outfit || {};
 
   function handleDelete () {

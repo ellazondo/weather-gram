@@ -20,7 +20,7 @@ export default function Users({ wgUsers }) {
     <section class="py-20 md:py-40 bg-yellow-50 overflow-hidden">
         <div class="group container px-4 mx-auto">
             <div class="max-w-4xl mx-auto mb-40 text-center">
-                <h1 class="text-5xl sm:text-7xl md:text-8xl font-heading font-semibold mb-12">What people say about suncealand</h1>
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-heading font-semibold mb-12">Weather Gram Users</h1>
                 <p class="max-w-xl mx-auto text-lg">Record your audio and upload it now. We'll help you distribute your podcast to Spotify, Apple and Google Podcasts.</p>
             </div>
         </div>
@@ -49,24 +49,3 @@ export default function Users({ wgUsers }) {
   );
 }
 
-    {/* <div class="w-full lg:w-1/3 px-3 mb-12 lg:mb-0">
-        <a class="group block pb-20 border-b border-gray-50 hover:border-gray-100" href="#">
-          <img class="md:transform group-hover:translate-y-3 block w-full mb-12 h-88 object-cover rounded-lg transition duration-500" src="suncealand-assets/images/portfolio-catalog2.png" alt="" />
-          <div class="max-w-2xs">
-            <h5 class="text-3xl font-medium mb-4">Sessam HAR9</h5>
-            <p class="text-xl mb-12">A real nice tools and app. It comes with a few free</p>
-            <span class="text-sm font-medium">SUMMER 2020</span>
-          </div>
-        </a>
-      </div> */}
-
-      {/* <div class="w-full lg:w-1/3 px-3">
-        <a class="group block pb-20 border-b border-gray-50 hover:border-gray-100" href="#">
-          <img class="md:transform group-hover:translate-y-3 block w-full mb-12 h-88 object-cover rounded-lg transition duration-500" src="suncealand-assets/images/portfolio-catalog1.png" alt="" />
-          <div class="max-w-2xs">
-            <h5 class="text-3xl font-medium mb-4">Sessam HAR9</h5>
-            <p class="text-xl mb-12">A real nice tools and app. It comes with a few free</p>
-            <span class="text-sm font-medium">SUMMER 2020</span>
-          </div>
-        </a>
-      </div> */}

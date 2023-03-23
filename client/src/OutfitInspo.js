@@ -10,7 +10,7 @@ export default function OutfitInspo({ outfits, onAddHanger, user }) {
   const displayedOutfits = outfits.filter((outfit) => {
     return outfit.temp.toString().includes(searchTerm.toString());
   });
-  console.log('searched temperature', searchTerm)
+  
 
   return (
     <main>

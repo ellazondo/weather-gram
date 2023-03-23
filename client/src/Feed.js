@@ -44,11 +44,8 @@ export default function Feed({ outfits, onAddHanger, user }) {
 
   if (ready) {
     return (
-      <div className="Home-wrapper">
-         <div className="Weather">
+      <>
       <form onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="col-9">
             <input
               type="search"
               placeholder="Enter a city"
@@ -56,18 +53,16 @@ export default function Feed({ outfits, onAddHanger, user }) {
               autoFocus="on"
               onChange={handleCityChange}
             />
-          </div>
-          <div className="col-3">
+          
             <input type="submit" value="search" className="btn btn-primary w-100" />
-          </div>
-        </div>
+          
+       
       </form>
-      
+      <div  className="flex justify-center items-start gap-y-5">
       <WeatherInfo data={weatherData} />
-      </div>
-      <h1 className="mb-5 hero d-flex d-none d-md-block">What to wear today:</h1>
       <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
       </div>
+      </>
     );
   } else { 
     search();

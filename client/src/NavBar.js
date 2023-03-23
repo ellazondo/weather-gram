@@ -10,7 +10,7 @@ export default function NavBar({user, onLogout}){
         <svg width="32" height="12" viewBox="0 0 32 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="2" fill="black"></rect><rect y="10" width="19" height="2" fill="black"></rect></svg>
       </button>
       <a class="inline-block text-2xl font-bold" href="#">
-        <img src="suncealand-assets/logos/suncealand-dark.svg" alt="" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_B3sB5GZrifBMZPSSyfFCj46XDqThh7aCzQ&usqp=CAU" alt="" />
       </a>
       <div class="hidden lg:flex items-center ml-auto">
         <div class="mr-12">
@@ -42,11 +42,11 @@ export default function NavBar({user, onLogout}){
             <img 
             src={user.profile_pic} 
             alt={user.username} />
-            <div class="absolute bottom-0 right-0 -mr-px -mb-1 flex w-4 h-4 items-center justify-center rounded-full bg-indigo-500 text-white text-xs font-bold">3</div>
+            <div class="absolute bottom-0 right-0 -mr-px -mb-1 flex w-4 h-4 items-center justify-center rounded-full bg-indigo-500 text-white text-xs font-bold">{user.hangers?.length}</div>
           </div>
           <span class="font-medium">{user.username}</span>
         </a>
-        <a class="relative group inline-flex h-12 w-24 items-center justify-center font-semibold rounded-lg bg-blue-500 overflow-hidden" href="/logout">
+        <a class="relative group inline-flex h-12 w-24 items-center justify-center font-semibold rounded-lg bg-blue-500 overflow-hidden" href="/" onClick={onLogout}>
           <span class="relative z-10 text-black group-hover:text-white transition duration-500">Logout</span>
           <div class="absolute top-0 left-0 h-full w-28 transform -translate-x-full -ml-1 group-hover:-translate-x-0 bg-black transition duration-500 ease-linear"></div>
         </a>
@@ -58,7 +58,7 @@ export default function NavBar({user, onLogout}){
     <nav class="relative pt-8 pb-8 bg-white h-full overflow-y-auto">
       <div class="flex flex-col px-6 h-full">
         <a class="inline-block text-2xl font-bold ml-8 mb-16" href="#">
-          <img src="suncealand-assets/logos/suncealand-dark.svg" alt="" />
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_B3sB5GZrifBMZPSSyfFCj46XDqThh7aCzQ&usqp=CAU" alt="" />
         </a>
         <ul class="w-full mb-auto pb-16">
           <li class="group mb-6">

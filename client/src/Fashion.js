@@ -9,7 +9,7 @@ export default function Fashion({ weatherData, outfits, onAddHanger, user }) {
 
 
   return (
-    <main>
+    <main className="w-full">
       <OutfitList
         weatherData={weatherData}
         outfits={outfits}
