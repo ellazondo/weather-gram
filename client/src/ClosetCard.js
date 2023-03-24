@@ -1,54 +1,45 @@
-import React from "react";
-import UpdateOutfitInCloset from './UpdateOutfitInCloset';
+import { useState } from "react";
+import PopUpFeedCloset from "./PopUpFeedCloset";
 
 export default function ClosetCard({ user, onUpdateOutfitInCloset, setHangersInCloset, hangerInCloset }) {
  
 // console.log('hanger in closet', hangerInCloset)
-const { name, temp, outfit_img } = hangerInCloset.outfit || {};
+const { name, outfit_img } = hangerInCloset.outfit || {};
+const [model, setModel] = useState(false)
 
-  function handleDelete () {
-      // console.log(id)
-      fetch(`http://localhost:3000/hangers/${hangerInCloset.id}`, {
-      method: 'DELETE'
-    })
-    .then(() => {
-      setHangersInCloset(hangersInCloset => hangersInCloset.filter(hanger=> hanger.id !== hangerInCloset.id))
-    })
-  }
+
 
  
 
 
   return (
     user.id === hangerInCloset.user_id ? 
-    (<li className="card">
-      <img className="h-60 transform group-hover:-translate-y-5 transition ease-in-out duration-1000 mb-4 rounded-4xl object-cover" src={outfit_img} alt={name} />
-      <h4>{name}</h4>
+    (<li className="w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 p-4" >
+            {model ? (
+            <PopUpFeedCloset
+            user={user}
+            hangerInCloset={hangerInCloset}
+            onUpdateOutfitInCloset={onUpdateOutfitInCloset}
+            setHangersInCloset={setHangersInCloset}
+             /> )
+            :
+            null
+            }
+      <img className="w-full rounded-lg" src={outfit_img} alt={name} onClick={() => setModel(!model)} />
+      {/* MOVED TO POPUPCLOSET */}
+      {/* <h4>{name}</h4>
       <p>Suggested Temperature: {temp} °F</p>
       <button onClick={handleDelete}>Delete</button>
       <UpdateOutfitInCloset 
       id = {hangerInCloset.outfit?.id}
-      onUpdateOutfitInCloset={onUpdateOutfitInCloset} />
+      onUpdateOutfitInCloset={onUpdateOutfitInCloset} /> */}
     </li> 
     ) :
     (null)
   );
 }
 
-  // return (
-  //   user.id === hangerInCloset.user_id ? 
-  //   (<li className="card">
-  //     <img className="h-60 transform group-hover:-translate-y-5 transition ease-in-out duration-1000 mb-4 rounded-4xl object-cover" src={outfit_img} alt={name} />
-  //     <h4>{name}</h4>
-  //     <p>Suggested Temperature: {temp} °F</p>
-  //     <button onClick={() => {
-  //       handleDelete(hangerInCloset.id)
-  //     }} >Delete</button>
-  //     <UpdateOutfitInCloset 
-  //     id = {hangerInCloset.outfit?.id}
-  //     onUpdateOutfitInCloset={onUpdateOutfitInCloset} />
-  //   </li> 
-  //   ) :
-  //   (null)
-  // );
+
+
+
 

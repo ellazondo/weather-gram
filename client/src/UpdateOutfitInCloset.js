@@ -5,13 +5,13 @@ export default function UpdateOutfitInCloset ( {id, onUpdateOutfitInCloset} ) {
     // const { name, temp, rain, occasion, city, outfit_img, created_by } = outfit
     
     const [updatedOutfitInCloset, setUpdatedOutfitInCloset] = useState({
-        name: '',
-        temp: '',
-        rain: '',
-        occasion: '',
-        city: '',
-        outfit_img: '',
-        created_by: ''
+        // name: '',
+        // temp: '',
+        // rain: '',
+        // occasion: '',
+        // city: '',
+        // outfit_img: '',
+        // created_by: ''
     })
 
     
@@ -81,7 +81,7 @@ export default function UpdateOutfitInCloset ( {id, onUpdateOutfitInCloset} ) {
         <input
           type="text"
           name="created_by"
-          placeholder="change your username"
+          placeholder="username"
           value={updatedOutfitInCloset.created_by}
           onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, created_by: e.target.value})}
         />

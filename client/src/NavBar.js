@@ -9,8 +9,8 @@ export default function NavBar({user, onLogout}){
       <button class="flex w-14 h-14 mr-12 items-center justify-center navbar-burger border border-gray-50 hover:border-gray-500 transform hover:rotate-45 rounded-full transition duration-300">
         <svg width="32" height="12" viewBox="0 0 32 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="2" fill="black"></rect><rect y="10" width="19" height="2" fill="black"></rect></svg>
       </button>
-      <a class="inline-block text-2xl font-bold" href="#">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_B3sB5GZrifBMZPSSyfFCj46XDqThh7aCzQ&usqp=CAU" alt="" />
+      <a class="inline-block relative w-10 h-10 rounded-full mr-4" href="#">
+        <img src="https://i.imgur.com/1ITyB86.png" alt="" />
       </a>
       <div class="hidden lg:flex items-center ml-auto">
         <div class="mr-12">
@@ -58,7 +58,7 @@ export default function NavBar({user, onLogout}){
     <nav class="relative pt-8 pb-8 bg-white h-full overflow-y-auto">
       <div class="flex flex-col px-6 h-full">
         <a class="inline-block text-2xl font-bold ml-8 mb-16" href="#">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_B3sB5GZrifBMZPSSyfFCj46XDqThh7aCzQ&usqp=CAU" alt="" />
+          <img src="https://i.imgur.com/1ITyB86.png" alt="" />
         </a>
         <ul class="w-full mb-auto pb-16">
           <li class="group mb-6">

@@ -2,7 +2,7 @@ import FormattedDate from './FormattedDate';
 import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo (props) {
-    // console.log(props.data)
+    console.log(props.data.icon)
     return (
         <div className="border-2 rounded-md min-h-0 flex items-center justify-left">
             <div className="flex flex-col bg-white rounded p-4 w-full max-w-xs">
