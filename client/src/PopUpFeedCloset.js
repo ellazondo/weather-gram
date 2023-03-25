@@ -1,9 +1,11 @@
 import UpdateOutfitInCloset from "./UpdateOutfitInCloset";
+import { useState } from 'react';
 
-export default function PopUpFeedCloset ({ hangerInCloset, onUpdateOutfitInCloset, setHangersInCloset }) {
+export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitInCloset, setHangersInCloset }) {
+    const [model, setModel] = useState(false)
     // console.log('popup', outfit.outfit_img)
     // console.log('popup user', user)
-    const { name, temp } = hangerInCloset.outfit || {};
+    const { name, temp, rain, occasion, city, created_by } = hangerInCloset.outfit || {};
 
       function handleDelete () {
       // console.log(id)
@@ -20,13 +22,33 @@ export default function PopUpFeedCloset ({ hangerInCloset, onUpdateOutfitInClose
 return (
     <>
  {/* <img className="w-full rounded-lg" src={outfit_img} alt={name} /> */}
+            {model ? (
+                <div className="relative">
+            <UpdateOutfitInCloset 
+            id = {hangerInCloset.outfit?.id}
+            onUpdateOutfitInCloset={onUpdateOutfitInCloset}
+            hangerInCloset={hangerInCloset} />
+            </div>
+              )
+            :
+            null}
 
       <h4>{name}</h4>
-      <p>Suggested Temperature: {temp} °F</p>
+      <p>Suggested Temperature: {temp} °C</p>
+      <p>Raining?{rain}</p>
+      <p>City:{city}</p>
+      <p>Occasion: {occasion}</p>
+      <p>Created by: {created_by}</p>
+      {user.username === hangerInCloset.outfit.created_by ?
+      (
+      <>
       <button onClick={handleDelete}>Delete</button>
-      <UpdateOutfitInCloset 
-      id = {hangerInCloset.outfit?.id}
-      onUpdateOutfitInCloset={onUpdateOutfitInCloset} />
+      <button onClick={() => setModel(!model)} >Update Outfit</button>
+      
+      </>
+      )
+      :
+      (null)}
 {/* BELOW IS EXAMPLE FROM POPUPOUTFIT    */}
 {/* <div>
 <img src={outfit.outfit_img} />
