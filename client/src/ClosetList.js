@@ -20,6 +20,7 @@ export default function ClosetList({ user, hangersInCloset, setHangersInCloset, 
             setHangersInCloset={setHangersInCloset}
             onUpdateOutfitInCloset={onUpdateOutfitInCloset}
           />
+          
          
           
         );
