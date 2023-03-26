@@ -21,14 +21,14 @@ export default function OutfitCard({ outfit, onAddHanger, user }) {
             null
             }
               
-              <h4 class="mb-8 lg:mb-4 text-3xl xs:text-4xl font-heading font-semibold group-hover:text-blueGray-700">{outfit.temp} °F</h4>
-              <span class="block mb-4 text-2xs text-gray-200 font-medium">{outfit.created_by}</span>
-              <img class="h-64 sm:h-80 lg:h-112 transform group-hover:-translate-y-5 transition ease-in-out duration-1000 w-full mb-4 rounded-4xl object-cover" 
+              {/* <h4 class="mb-8 lg:mb-4 text-3xl xs:text-4xl font-heading font-semibold group-hover:text-blueGray-700">{outfit.temp} °F</h4>
+              <span class="block mb-4 text-2xs text-gray-200 font-medium">{outfit.created_by}</span> */}
+              <img class="h-64 sm:h-80 lg:h-112 transform group-hover:-translate-y-5 transition ease-in-out duration-1000 w-full mb-4 mt-10 rounded-4xl object-cover" 
                 src={outfit.outfit_img} 
                 alt={outfit.name}  />
-              <span class="inline-flex items-center font-base font-semibold">
+              {/* <span class="inline-flex items-center font-base font-semibold">
                 <span class="mr-1">
-                  {/* <button onClick={handleSave}>Save to closet</button> */}
+                  
                   </span>
                 <div class="relative transition duration-500 animate-pulse">
                   <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@ export default function OutfitCard({ outfit, onAddHanger, user }) {
                     </svg>
                   </div>
                 </div>
-              </span>
+              </span> */}
             </a>
           </div>
           </li>

@@ -29,13 +29,13 @@ export default function UpdateOutfitInCloset ( {hangerInCloset, id, onUpdateOutf
 <span className= "inline-block relative w-20 h-20 rounded-full mr-4">
 <img src={outfit_img} alt={name} />
 </span>
-{/* DIV 1 */}
+
         <div className="max-w-md mx-auto">
 
           <form onSubmit={(e) => handleUpdateOutfitInCloset(e, id)}>
-            {/* DIV 2 */}
+            
             <div className="max-w-md xl:max-w-3xl mx-auto">
-{/* DIV 3 */}
+
               <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
  				<input 
         className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 

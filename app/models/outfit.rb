@@ -12,5 +12,6 @@ class Outfit < ApplicationRecord
     validates :city, presence: true 
     validates :outfit_img, presence: true, uniqueness: true
     validates :created_by, presence: true 
+    
 
 end

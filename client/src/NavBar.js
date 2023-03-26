@@ -46,7 +46,7 @@ export default function NavBar({user, onLogout}){
           </div>
           <span class="font-medium">{user.username}</span>
         </a>
-        <a class="relative group inline-flex h-12 w-24 items-center justify-center font-semibold rounded-lg bg-blue-500 overflow-hidden" href="/" onClick={onLogout}>
+        <a class="relative group inline-flex h-12 w-24 items-center justify-center font-semibold rounded-lg bg-blue-500 overflow-hidden" onClick={onLogout}>
           <span class="relative z-10 text-black group-hover:text-white transition duration-500">Logout</span>
           <div class="absolute top-0 left-0 h-full w-28 transform -translate-x-full -ml-1 group-hover:-translate-x-0 bg-black transition duration-500 ease-linear"></div>
         </a>
