@@ -1,5 +1,9 @@
+import { useState } from 'react';
+import OutfitBreakdown from './OutfitBreakdown';
+
 export default function PopUpFeedOutfit ({ outfit, user, onAddHanger }) {
-    // console.log('popup', outfit.outfit_img)
+  const [model, setModel] = useState(false)
+    console.log('popup', outfit)
     // console.log('popup user', user)
 
     function handleSave (e) {
@@ -30,15 +34,25 @@ export default function PopUpFeedOutfit ({ outfit, user, onAddHanger }) {
 
 return (
     <>
+            {model ? (
+                <div className="relative">
+            <OutfitBreakdown  
+            key = {outfit.id}
+            outfit={outfit} />
+            </div>
+              )
+            :
+            null}
     <div>
 <img src={outfit.outfit_img} />
 <ul>
-<li> Temperature: {outfit.temp} </li>
+<li> Temperature Range: {outfit.temp_range}°C </li>
 <li> Occasion: {outfit.occasion} </li>
 <li> Raining: {outfit.rain} </li>
 <li> Created by: {outfit.created_by} </li>
 </ul>
 <button onClick={handleSave}> Save to closet</button> 
+<button onClick={() => setModel(!model)} >Breakdown Outfit</button>
 </div>
 {/* <div className="opacity-25 fixed inset-0 z-40 bg-black"></div> */}
 </>

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2023_03_15_164824) do
 
   create_table "outfits", force: :cascade do |t|
     t.string "name"
-    t.integer "temp"
+    t.string "temp_range"
     t.boolean "rain"
     t.string "occasion"
     t.string "city"

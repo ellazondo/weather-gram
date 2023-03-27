@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function NewOutfitForm({ onAddOutfit }) {
+export default function NewOutfitForm({ onAddOutfit}) {
   const [newOutfitName, setNewOutfitName] = useState("");
   const [newOutfitImage, setNewOutfitImage] = useState("");
   const [newOutfitTemp, setNewOutfitTemp] = useState("");
@@ -128,6 +128,26 @@ export default function NewOutfitForm({ onAddOutfit }) {
 
         </div>
       </form>
+
+       <button class="inline-flex items-center font-base font-semibold px-10 mt-10">
+                <span class="mr-2 text-white">exit</span>
+                <div class="relative transition duration-500 animate-pulse text-white">
+                  <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.00193 0.666626L0.0585938 1.60996L3.78193 5.33329L4.50195 5.99996L3.78193 6.66663L0.0585938 10.39L1.00193 11.3333L6.33526 5.99996L1.00193 0.666626Z" fill="currentColor"></path>
+                  </svg>
+                  <div class="absolute top-0 right-0 -mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.00193 0.666626L0.0585938 1.60996L3.78193 5.33329L4.50195 5.99996L3.78193 6.66663L0.0585938 10.39L1.00193 11.3333L6.33526 5.99996L1.00193 0.666626Z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                  <div class="absolute top-0 right-0 -mr-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.00193 0.666626L0.0585938 1.60996L3.78193 5.33329L4.50195 5.99996L3.78193 6.66663L0.0585938 10.39L1.00193 11.3333L6.33526 5.99996L1.00193 0.666626Z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                </div>
+              </button>
+
       </div>
 
 

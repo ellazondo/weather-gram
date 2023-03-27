@@ -2,7 +2,7 @@
 import ReactAnimatedWeather from "react-animated-weather";
 
 export default function WeatherIcon (props) {
-    console.log('should be 043', props.code)
+    // console.log('should be 043', props.code)
 
     const codeMapping = {
         "01d" : "CLEAR_DAY",

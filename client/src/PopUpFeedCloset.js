@@ -5,7 +5,7 @@ export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitI
     const [model, setModel] = useState(false)
     // console.log('popup', outfit.outfit_img)
     // console.log('popup user', user)
-    const { name, temp, rain, occasion, city, created_by } = hangerInCloset.outfit || {};
+    const { name, temp_range, rain, occasion, city, created_by } = hangerInCloset.outfit || {};
 
       function handleDelete () {
       // console.log(id)
@@ -18,10 +18,11 @@ export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitI
   }
     
     
-
+// const [minTemp, maxTemp] = outfit.temp_range.split('-');
 return (
   // SOMETHING IS WEIRD WITH THE DELETE UPDATE BUTTONS WHEN 
   // THE UPDATEOUTFITINCLOSET MODEL POPS UP. REFER BACK TO GITHUB. THE "closet stling is done"
+  
     
  <>
             {model ? (
@@ -47,7 +48,7 @@ return (
       (<p class="max-w-2xs pr-10"> Raining</p>)
       :
       (<p class="max-w-2xs pr-10">No Rain</p>)}
-    <p class="max-w-2xs pr-10">{temp}°C</p>
+    <p class="max-w-2xs pr-10">{temp_range}°C</p>
 
     {user.username === hangerInCloset.outfit.created_by ?
       (
