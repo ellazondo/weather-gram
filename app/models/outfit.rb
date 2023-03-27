@@ -6,7 +6,8 @@ class Outfit < ApplicationRecord
     has_one :shoe
 
     validates :name, uniqueness: true
-    validates :temp_range, presence: true, format: { with: /\A\d+-\d+\z/, message: "must be in the format of '0-35'" }
+    # validates :temp_range, presence: true, format: { with: /\A\d+-\d+\z/, message: "must be in the format of '0-35'" }
+    validates :temp_range, presence: true, format: { with: /\A([0-2]?[0-9]|3[0-5])-(0?[0-9]|[1-2][0-9]|3[0-5])\z/, message: "must be in the format of '0-35'" }
     validates :rain, inclusion: [true, false]
     validates :occasion, presence: true
     validates :city, presence: true 

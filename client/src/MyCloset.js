@@ -10,7 +10,7 @@ export default function MyCloset({user, hangersInCloset, onAddOutfit, setHangers
         <div className="group container px-4 mx-auto">
             {model ? (
                 <div className="relative">
-            <NewOutfitForm onAddOutfit={onAddOutfit} />
+            <NewOutfitForm onAddOutfit={onAddOutfit} user={user} />
             </div>
               )
             :

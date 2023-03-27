@@ -54,14 +54,14 @@ return (
       (
       <>
           <button class="h-10 w-20 bg-blueGray-900 rounded">
-            <div class="top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+            <div class="top-0 left-0 w-full h-full transition duration-300">
               <div onClick={handleDelete} class=" items-center bg-white border-2 border-blueGray-900 rounded">
-              <span class="text-base font-semibold uppercase">Delete</span>
+              <span class="text-base uppercase">Delete</span>
              </div>
             </div>
           </button>
           <button class=" h-10 w-25 bg-blueGray-900 rounded">
-            <div class="top-0 left-0 transform -translate-y-1 -translate-x-1 h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+            <div class="top-0 left-0 h-full transition duration-300">
               <div onClick={() => setModel(!model)} class=" items-center bg-white border-2 border-blueGray-900 rounded">
               <span class="text-base font-semibold uppercase">Update Outfit</span>
              </div>
@@ -74,6 +74,8 @@ return (
 
         </div>
         </>
+
+    
 
       
 

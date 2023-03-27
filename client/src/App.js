@@ -130,7 +130,6 @@ export default function App() {
 
 //this is in response to filling out and submiting a new outfit form
 //It will add the outfit to /todaysfeed
-//adding it to /mycloset isn't working
   function onAddOutfit(newOutfit) {
     console.log('new outfit', newOutfit)
     const updatedOutfitArray = [...outfits, newOutfit];
@@ -146,7 +145,7 @@ export default function App() {
       })
     })
   .then(r=> r.json())
-  .then((newHanger) => setHangersInCloset([...hangersInCloset, newHanger]))
+  .then((newHanger) => console.log([...hangersInCloset, newHanger]))
     
   }
 

@@ -8,6 +8,7 @@ export default function OutfitBreakdwon ({outfit}) {
 {/* <section class="fixed py-20 md:py-40 bg-yellowGray-50 overflow-hidden">
   <div class="absolute top-0 right-0 w-1/4 sm:w-2/5 lg:w-1/3 h-full bg-yellow-500"></div>
   <div class="relative container px-4 mx-auto">
+
     <div class="flex flex-wrap -mx-4 items-end">
       <div class="w-full lg:w-1/3 px-4 lg:pb-24">
         <div class="md:max-w-sm">
@@ -95,6 +96,7 @@ export default function OutfitBreakdwon ({outfit}) {
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </section> */}

@@ -20,13 +20,13 @@ export default function Users({ wgUsers }) {
     <section class="py-20 md:py-40 bg-yellow-50 overflow-hidden">
         <div class="group container px-4 mx-auto">
             <div class="max-w-4xl mx-auto mb-40 text-center">
-                <h1 class="text-5xl sm:text-7xl md:text-8xl font-heading font-semibold mb-12">Weather Gram Users</h1>
-                <p class="max-w-xl mx-auto text-lg">Record your audio and upload it now. We'll help you distribute your podcast to Spotify, Apple and Google Podcasts.</p>
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-heading font-semibold mb-12">Weather Grammers</h1>
+                <p class="max-w-xl mx-auto text-lg">Check out all of the users of Weather Gram.</p>
             </div>
         </div>
 
   <div class="max-w-xl mx-auto lg:max-w-none px-4 md:px-10">
-    <h4 class="text-3xl font-medium mb-12">Excellent projects by and for our community</h4>
+    {/* <h4 class="text-3xl font-medium mb-12">Excellent projects by and for our community</h4> */}
     
     <div class="flex flex-wrap -mx-3 mb-20">
       <UserListAll

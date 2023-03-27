@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
-export default function NewOutfitForm({ onAddOutfit}) {
+export default function NewOutfitForm({ onAddOutfit, user }) {
   const [newOutfitName, setNewOutfitName] = useState("");
   const [newOutfitImage, setNewOutfitImage] = useState("");
   const [newOutfitTemp, setNewOutfitTemp] = useState("");
   const [newOutfitRain, setNewOutfitRain] = useState("");
   const [newOutfitOccasion, setNewOutfitOccasion] = useState("");
   const [newOutfitCity, setNewOutfitCity] = useState("");
-  const [newOutfitCreatedBy, setNewOutfitCreatedBy] = useState("");
+  // const [newOutfitCreatedBy, setNewOutfitCreatedBy] = useState("");
+  console.log(newOutfitTemp)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,12 +19,12 @@ export default function NewOutfitForm({ onAddOutfit}) {
       },
       body: JSON.stringify({
         name: newOutfitName,
-        temp: newOutfitTemp,
+        temp_range: newOutfitTemp,
         rain: newOutfitRain,
         occasion: newOutfitOccasion,
         city: newOutfitCity,
         outfit_img: newOutfitImage,
-        created_by: newOutfitCreatedBy,
+        created_by: user.username,
 
         
 
@@ -55,16 +56,18 @@ export default function NewOutfitForm({ onAddOutfit}) {
 
 <div className="relative group px-4 pt-2.5 pb-2 mb-4 bg-gray-50 rounded-lg">
       <input
-          type="number"
+          type="string"
           name="temp"
           step="0.01"
-          placeholder="Temperature °C"
+          placeholder="temp °C, exp: 25-30"
           value={newOutfitTemp}
-          onChange={(e) => setNewOutfitTemp(parseFloat(e.target.value))}
+          min="0"
+          max="35"
+          onChange={(e) => setNewOutfitTemp((e.target.value))}
         />
         </div>
 
-        <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+        {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
         <input
           type="text"
           name="rain"
@@ -72,9 +75,21 @@ export default function NewOutfitForm({ onAddOutfit}) {
           value={newOutfitRain}
           onChange={(e) => setNewOutfitRain(e.target.value)}
         />
-</div>
+</div> */}
 
-        <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+<div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+       <select
+        id="search"
+        // value={searchRain}
+        onChange={(e) => setNewOutfitRain(e.target.value)}
+      >
+        <option value="">Rain?</option>
+        <option value="true">True</option>
+        <option value="false">False</option>
+        </select>
+        </div>
+
+        {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
         <input
           type="text"
           name="occasion"
@@ -82,6 +97,23 @@ export default function NewOutfitForm({ onAddOutfit}) {
           value={newOutfitOccasion}
           onChange={(e) => setNewOutfitOccasion(e.target.value)}
         />
+        </div> */}
+
+      <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+        <select
+        id="search"
+        onChange={(e) => setNewOutfitOccasion(e.target.value)}
+      >
+        <option value="">Occasion</option>
+        <option value="streetwear">Streetwear</option>
+        <option value="sporty">Sporty</option>
+        <option value="brunch">Brunch</option>
+        <option value="dinner_party">Dinner Party</option>
+        <option value="going_out">Going Out</option>
+        <option value="festival">Festival</option>
+        <option value="wedding">Wedding</option>
+
+        </select>
         </div>
         
         
@@ -106,7 +138,7 @@ export default function NewOutfitForm({ onAddOutfit}) {
         />
         </div>
         
-        <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+        {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
         <input
           type="text"
           name="created_by"
@@ -114,7 +146,7 @@ export default function NewOutfitForm({ onAddOutfit}) {
           value={newOutfitCreatedBy}
           onChange={(e) => setNewOutfitCreatedBy(e.target.value)}
         />
-        </div>
+        </div> */}
 
                       <div className="text-center">
                 <a className="group relative inline-block h-16 mb-8 w-full md:w-44 bg-blueGray-900 rounded" >
