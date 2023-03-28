@@ -9,8 +9,8 @@ export default function OutfitCard({ outfit, onAddHanger, user }) {
 
 
   return (
-    <li className="card">
-              <div class="w-full 2xl:w-1/2 px-4 mb-20 2xl:mb-0">
+    <li className="w-full 2xl:w-1/2 px-2 mb-10 2xl:mb-0">
+              
             <a class="group block max-w-md mx-auto" onClick={() => setModel(!model)}> 
             {model ? (
             <PopUpFeedOutfit
@@ -47,7 +47,7 @@ export default function OutfitCard({ outfit, onAddHanger, user }) {
                 </div>
               </span> */}
             </a>
-          </div>
+          
           </li>
 
     
@@ -55,10 +55,7 @@ export default function OutfitCard({ outfit, onAddHanger, user }) {
   );
 }
 
-  
-      // <img src={outfit.outfit_img} alt={outfit.name} />
-      // <h4>{outfit.name}</h4>
-      // <p>Suggested Temperature: {outfit.temp} °F</p>
+
     
 
 

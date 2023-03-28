@@ -20,13 +20,10 @@ export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitI
     
 // const [minTemp, maxTemp] = outfit.temp_range.split('-');
 return (
-  // SOMETHING IS WEIRD WITH THE DELETE UPDATE BUTTONS WHEN 
-  // THE UPDATEOUTFITINCLOSET MODEL POPS UP. REFER BACK TO GITHUB. THE "closet stling is done"
-  
     
  <>
             {model ? (
-                <div className="relative">
+            <div className="relative">
             <UpdateOutfitInCloset 
             id = {hangerInCloset.outfit?.id}
             onUpdateOutfitInCloset={onUpdateOutfitInCloset}
@@ -50,13 +47,14 @@ return (
       (<p class="max-w-2xs pr-10">No Rain</p>)}
     <p class="max-w-2xs pr-10">{temp_range}°C</p>
 
+
     {user.username === hangerInCloset.outfit.created_by ?
       (
       <>
           <button class="h-10 w-20 bg-blueGray-900 rounded">
             <div class="top-0 left-0 w-full h-full transition duration-300">
               <div onClick={handleDelete} class=" items-center bg-white border-2 border-blueGray-900 rounded">
-              <span class="text-base uppercase">Delete</span>
+              <span class="text-base uppercase font-semibold">Delete</span>
              </div>
             </div>
           </button>

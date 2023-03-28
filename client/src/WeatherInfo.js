@@ -12,7 +12,10 @@ export default function WeatherInfo (props) {
                     <WeatherIcon code={props.data.icon} />
 				</div>
 					<div className="flex flex-row items-center justify-center mt-6">
-							<div className="font-medium text-6xl">{Math.round(props.data.temperature)}</div>
+							<div className="font-medium text-6xl flex align-top">
+                                {Math.round(props.data.temperature)}
+                                <span className="text-sm relative top-0.5">°C</span>
+                            </div>
 							<div className="flex flex-col items-center ml-6">
 								<div>{props.data.description}</div>
 								<div className="mt-1">

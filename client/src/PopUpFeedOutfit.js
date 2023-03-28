@@ -35,7 +35,7 @@ export default function PopUpFeedOutfit ({ outfit, user, onAddHanger }) {
 return (
     <>
             {model ? (
-                <div className="relative">
+            <div className="relative">
             <OutfitBreakdown  
             key = {outfit.id}
             outfit={outfit} />
@@ -52,7 +52,15 @@ return (
 <li> Created by: {outfit.created_by} </li>
 </ul>
 <button onClick={handleSave}> Save to closet</button> 
-<button onClick={() => setModel(!model)} >Breakdown Outfit</button>
+              <button class=" h-10 w-25 bg-blueGray-900 rounded">
+            <div class="top-0 left-0 h-full transition duration-300">
+              <div onClick={() => setModel(!model)} class=" items-center bg-white border-2 border-blueGray-900 rounded">
+              <span class="text-base font-semibold uppercase"> Breakdown Outfit</span>
+             </div>
+            </div>
+          </button>
+
+
 </div>
 {/* <div className="opacity-25 fixed inset-0 z-40 bg-black"></div> */}
 </>

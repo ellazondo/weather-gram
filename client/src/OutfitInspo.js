@@ -11,26 +11,25 @@ export default function OutfitInspo({ outfits, onAddHanger, user }) {
   const [searchOccasion, setSearchOccasion] = useState("");
   const [displayedOutfits, setDisplayedOutfits] = useState([]);
 
-
 useEffect(() => {
   const filteredOutfits = outfits.filter((outfit) => {
     const [minTemp, maxTemp] = outfit.temp_range.split('-');
     const searchTermInt = parseInt(searchTerm);
     if (searchRain === false || searchRain === "") {
       // if searchRain is false or not set, include all outfits
-      return searchTermInt >= parseInt(minTemp) 
-        && searchTermInt <= parseInt(maxTemp)
-        && outfit.city.toLowerCase().includes(searchCity.toLowerCase()) 
-        && outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) 
-        && (searchOccasion === "" || outfit.occasion.toLowerCase() === searchOccasion.toLowerCase());
-    } else {
-      // if searchRain is true, include only outfits that match the rain condition
-      return searchTermInt >= parseInt(minTemp) 
-        && searchTermInt <= parseInt(maxTemp)
-        && outfit.city.toLowerCase().includes(searchCity.toLowerCase()) 
+      return outfit.city.toLowerCase().includes(searchCity.toLowerCase()) 
         && outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) 
         && (searchOccasion === "" || outfit.occasion.toLowerCase() === searchOccasion.toLowerCase())
-        && outfit.rain === true;
+        && searchTermInt >= parseInt(minTemp)
+        && searchTermInt <= parseInt(maxTemp);
+    } else {
+      // if searchRain is true, include only outfits that match the rain condition
+      return outfit.city.toLowerCase().includes(searchCity.toLowerCase()) 
+        && outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) 
+        && (searchOccasion === "" || outfit.occasion.toLowerCase() === searchOccasion.toLowerCase())
+        && outfit.rain === true
+        && searchTermInt <= parseInt(maxTemp)
+        && searchTermInt >= parseInt(minTemp);
     }
   });
 
@@ -40,6 +39,8 @@ useEffect(() => {
 useEffect(() => {
   setDisplayedOutfits(outfits);
 }, [outfits]);
+
+
 
   return (
     <main>
@@ -70,8 +71,7 @@ useEffect(() => {
     // outfit.temp.toString().includes(searchTerm.toString()) 
   // });
 
-
-// useEffect(() => {
+//   useEffect(() => {
 //   const filteredOutfits = outfits.filter((outfit) => {
 //   const [minTemp, maxTemp] = outfit.temp_range.split('-');
 //   const searchTermInt = parseInt(searchTerm);
@@ -90,3 +90,5 @@ useEffect(() => {
 //   useEffect(() => {
 //     setDisplayedOutfits([...outfits]);
 //   }, [outfits]);
+
+

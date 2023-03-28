@@ -23,18 +23,6 @@ const [model, setModel] = useState(false)
             null}
       <img className="w-full rounded-lg" src={outfit_img} alt={name} onClick={() => setModel(!model)} />
       
- 
-            
-            
-
-      
-      {/* MOVED TO POPUPCLOSET */}
-      {/* <h4>{name}</h4>
-      <p>Suggested Temperature: {temp} °F</p>
-      <button onClick={handleDelete}>Delete</button>
-      <UpdateOutfitInCloset 
-      id = {hangerInCloset.outfit?.id}
-      onUpdateOutfitInCloset={onUpdateOutfitInCloset} /> */}
     </li> 
     ) :
     (null)

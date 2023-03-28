@@ -27,7 +27,7 @@ export default function Feed({ outfits, onAddHanger, user }) {
 
   function search() {
     const apiKey = "7e51999498b98449960c3d517772a9e2";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     axios.get(apiUrl).then(handleResponse);
   }
   
