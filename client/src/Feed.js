@@ -12,7 +12,7 @@ export default function Feed({ outfits, onAddHanger, user }) {
   function handleResponse (response) {
     
     setWeatherData({
-      
+      coord: response.data.coordinates,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -27,7 +27,7 @@ export default function Feed({ outfits, onAddHanger, user }) {
 
   function search() {
     const apiKey = "7e51999498b98449960c3d517772a9e2";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     axios.get(apiUrl).then(handleResponse);
   }
   
@@ -58,10 +58,11 @@ export default function Feed({ outfits, onAddHanger, user }) {
           
        
       </form>
-      <div  className="flex justify-center items-start gap-y-5">
+      <div className="flex flex-col items-center justify-center w-screen text-gray-700 p-10 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 ">
       <WeatherInfo data={weatherData} />
-      <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
       </div>
+      <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
+      
       </>
     );
   } else { 
