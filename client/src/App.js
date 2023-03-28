@@ -18,8 +18,10 @@ export default function App() {
   const [loginFormData, setLoginFormData] = useState({})
   const [signupFormData, setSignupFormData] = useState({})
   const [outfits, setOutfits] = useState([])
+  const [tops, setTops] = useState([])
   const [hangersInCloset, setHangersInCloset] = useState([]);
   const [wgUsers, setWgUsers] = useState([])
+  console.log(tops)
 
 // fetching to the backend asking for all of the hangers
   useEffect(() => {
@@ -41,6 +43,14 @@ export default function App() {
       .then((r) => r.json())
       .then((OutfitsArray) => {
         setOutfits(OutfitsArray);
+      });
+  }, []);
+
+    useEffect(() => {
+    fetch("http://localhost:3000/tops")
+      .then((r) => r.json())
+      .then((TopsArray) => {
+        setTops(TopsArray);
       });
   }, []);
 

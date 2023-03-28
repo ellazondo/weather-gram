@@ -9,7 +9,7 @@ class OutfitsController < ApplicationController
 
     def show
         outfit = Outfit.find(params[:id])
-        render json: outfit, serializer: OutfitBreakdownSerializer
+        render json: outfit
     end
 
     def update

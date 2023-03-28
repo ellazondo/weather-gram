@@ -11,6 +11,7 @@ export default function OutfitInspo({ outfits, onAddHanger, user }) {
   const [searchOccasion, setSearchOccasion] = useState("");
   const [displayedOutfits, setDisplayedOutfits] = useState([]);
 
+  
 
 useEffect(() => {
   const filteredOutfits = outfits.filter((outfit) => {

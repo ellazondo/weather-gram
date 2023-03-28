@@ -1,8 +1,10 @@
 import UpdateOutfitInCloset from "./UpdateOutfitInCloset";
 import { useState } from 'react';
+import OutfitBreakdown from "./OutfitBreakdown";
 
 export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitInCloset, setHangersInCloset }) {
     const [model, setModel] = useState(false)
+    const [secondModel, setSecondModel] = useState(false)
     // console.log('popup', outfit.outfit_img)
     
     const { name, temp_range, rain, occasion, city, created_by } = hangerInCloset.outfit || {};
@@ -45,6 +47,17 @@ return (
               )
             :
             null}
+
+                        {secondModel ? (
+                <div className="relative">
+            <OutfitBreakdown
+            //  id={hangerInCloset.outfit?.id}
+            hangerInCloset={hangerInCloset}
+            />
+            </div>
+              )
+            :
+            null}
            
 
 
@@ -59,10 +72,17 @@ return (
       :
       (<p class="max-w-2xs pr-10">No Rain</p>)}
     <p class="max-w-2xs pr-10">{temp_range}°C</p>
-             <button class="h-10 w-20 bg-blueGray-900 rounded">
+             <button class="h-5 w-30 bg-blueGray-900 rounded">
             <div class="top-0 left-0 w-full h-full transition duration-300">
               <div onClick={handleDelete} class=" items-center bg-white border-2 border-blueGray-900 rounded">
               <span class="text-base uppercase">Delete from Closet</span>
+             </div>
+            </div>
+          </button>
+          <button class="h-5 w-30 bg-blueGray-900 rounded">
+            <div class="top-0 left-0 w-full h-full transition duration-300">
+              <div onClick={() => setSecondModel(!model)} class=" items-center bg-white border-2 border-blueGray-900 rounded">
+              <span class="text-base uppercase">Shop this look</span>
              </div>
             </div>
           </button>

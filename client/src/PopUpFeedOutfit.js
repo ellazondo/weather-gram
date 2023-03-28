@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import OutfitBreakdown from './OutfitBreakdown';
+// import OutfitBreakdown from './OutfitBreakdown';
 
 export default function PopUpFeedOutfit ({ outfit, user, onAddHanger }) {
   const [model, setModel] = useState(false)
@@ -34,7 +34,7 @@ export default function PopUpFeedOutfit ({ outfit, user, onAddHanger }) {
 
 return (
     <>
-            {model ? (
+            {/* {model ? (
                 <div className="relative">
             <OutfitBreakdown  
             key = {outfit.id}
@@ -42,7 +42,7 @@ return (
             </div>
               )
             :
-            null}
+            null} */}
     <div>
 <img src={outfit.outfit_img} />
 <ul>
@@ -52,7 +52,7 @@ return (
 <li> Created by: {outfit.created_by} </li>
 </ul>
 <button onClick={handleSave}> Save to closet</button> 
-<button onClick={() => setModel(!model)} >Breakdown Outfit</button>
+
 </div>
 {/* <div className="opacity-25 fixed inset-0 z-40 bg-black"></div> */}
 </>

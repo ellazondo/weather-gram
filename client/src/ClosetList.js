@@ -6,6 +6,7 @@ export default function ClosetList({ user, hangersInCloset, setHangersInCloset, 
   
   return (
     
+    
     <ul className="flex flex-wrap -mx-4 -mb-4">
       {hangersInCloset?.map((hangerInCloset) => {
         

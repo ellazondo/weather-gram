@@ -1,7 +1,7 @@
-export default function OutfitBreakdwon ({outfit}) {
+export default function OutfitBreakdwon ({hangerInCloset}) {
+  console.log(hangerInCloset)
     return (
-      <h1>not working</h1>
-
+<h1 className="text-white">in progress</h1>
     );
 }
 
@@ -30,7 +30,7 @@ export default function OutfitBreakdwon ({outfit}) {
       </div>
       <div class="hidden lg:block w-full lg:w-2/3 lg:-ml-22 px-4">
         <div class="relative max-w-lg xl:max-w-xl ml-auto mr-6">
-          <img class="absolute bottom-full left-0 -mb-24 h-118 object-cover" src={outfit.outfit_img} alt="" />
+          <img class="absolute bottom-full left-0 -mb-24 h-118 object-cover" src={hangerInCloset.outfit_img.outfit_img} alt="" />
           <div class="absolute bottom-full right-0 -mr-32 mb-40 xl:mb-20 z-10">
             <div class="flex mb-8 items-center justify-center w-15 h-15 bg-white rounded-full border-3 border-black text-2xl font-semibold text-black">LC</div>
             <h4 class="text-4xl font-medium">Lill Caoimhin</h4>
@@ -41,7 +41,7 @@ export default function OutfitBreakdwon ({outfit}) {
               <div class="animate-bouncingSlow">
                 <div class="relative h-44 bg-blue-500 rounded-t-xl">
                   <div class="absolute z-10 bottom-0 left-0 ml-7 mb-3 flex items-center justify-center w-15 h-15 bg-white rounded-full border-3 border-black text-2xl font-semibold text-black">MA</div>
-                  <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:h-52 object-contain xl:object-cover" src={outfit.top_img} alt="" />
+                  <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:h-52 object-contain xl:object-cover" src={hangerInCloset.outfit_img.top_img} alt="" />
                 </div>
                 <div class="px-8 pt-6 pb-8 bg-white rounded-b-xl">
                   <h4 class="text-2xl font-medium">Meave Anders</h4>
@@ -53,7 +53,7 @@ export default function OutfitBreakdwon ({outfit}) {
               <div class="animate-bouncingSlow" style="animation-delay: 1s;">
                 <div class="relative h-44 bg-indigo-500 rounded-t-xl">
                   <div class="absolute z-10 bottom-0 left-0 ml-7 mb-3 flex items-center justify-center w-15 h-15 bg-white rounded-full border-3 border-black text-2xl font-semibold text-black">CR</div>
-                  <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:h-52 object-contain xl:object-cover" src={outfit.top_img} alt="" />
+                  <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:h-52 object-contain xl:object-cover" src={hangerInCloset.outfit.top_img} alt="" />
                 </div>
                 <div class="px-8 pt-6 pb-8 bg-white rounded-b-xl">
                   <h4 class="text-2xl font-medium">Calvin Ramsay</h4>
@@ -66,7 +66,7 @@ export default function OutfitBreakdwon ({outfit}) {
       </div>
       <div class="lg:hidden w-full px-4">
         <div class="relative pt-135 sm:-mr-10">
-          <img class="absolute top-0 left-0 ml-12 mt-52 h-88 object-cover" src={outfit.bottom_img} alt="" />
+          <img class="absolute top-0 left-0 ml-12 mt-52 h-88 object-cover" src={hangerInCloset.outfit.bottom_img} alt="" />
           <div class="absolute top-0 left-0 mt-32 z-10">
             <div class="flex mb-6 items-center justify-center w-12 h-12 bg-white rounded-full border-3 border-black text-xl font-semibold text-black">LC</div>
             <h4 class="text-3xl xs:text-4xl font-medium">Lill Caoimhin</h4>
@@ -76,7 +76,7 @@ export default function OutfitBreakdwon ({outfit}) {
             <div class="w-full max-w-sm mx-auto mb-10">
               <div class="relative h-44 bg-blue-500 rounded-t-xl">
                 <div class="absolute z-10 bottom-0 left-0 ml-7 mb-3 flex items-center justify-center w-15 h-15 bg-white rounded-full border-3 border-black text-2xl font-semibold text-black">MA</div>
-                <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:h-52 object-contain xl:object-cover" src={outfit.shoe_img} alt="" />
+                <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:h-52 object-contain xl:object-cover" src={hangerInCloset.outfit.shoe_img} alt="" />
               </div>
               <div class="px-8 pt-6 pb-8 bg-white rounded-b-xl">
                 <h4 class="text-2xl font-medium">Meave Anders</h4>
@@ -86,7 +86,7 @@ export default function OutfitBreakdwon ({outfit}) {
             <div class="w-full max-w-sm mx-auto">
               <div class="relative h-44 bg-indigo-500 rounded-t-xl">
                 <div class="absolute z-10 bottom-0 left-0 ml-7 mb-3 flex items-center justify-center w-15 h-15 bg-white rounded-full border-3 border-black text-2xl font-semibold text-black">CR</div>
-                <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:h-52 object-contain xl:object-cover" src={outfit.top_img} alt="" />
+                <img class="absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:h-52 object-contain xl:object-cover" src={hangerInCloset.outfit.top_img} alt="" />
               </div>
               <div class="px-8 pt-6 pb-8 bg-white rounded-b-xl">
                 <h4 class="text-2xl font-medium">Calvin Ramsay</h4>
@@ -99,4 +99,4 @@ export default function OutfitBreakdwon ({outfit}) {
       
     </div>
   </div>
-</section> */}
+</section>  */}
