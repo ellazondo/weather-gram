@@ -14,25 +14,17 @@ export default function OutfitInspo({ outfits, onAddHanger, user }) {
 
 useEffect(() => {
   const filteredOutfits = outfits.filter((outfit) => {
-    const [minTemp, maxTemp] = outfit.temp_range.split('-');
-    const searchTermInt = parseInt(searchTerm);
-    if (searchRain === false || searchRain === "") {
-      // if searchRain is false or not set, include all outfits
-      return searchTermInt >= parseInt(minTemp) 
-        && searchTermInt <= parseInt(maxTemp)
-        && outfit.city.toLowerCase().includes(searchCity.toLowerCase()) 
-        && outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) 
-        && (searchOccasion === "" || outfit.occasion.toLowerCase() === searchOccasion.toLowerCase());
-    } else {
-      // if searchRain is true, include only outfits that match the rain condition
-      return searchTermInt >= parseInt(minTemp) 
-        && searchTermInt <= parseInt(maxTemp)
-        && outfit.city.toLowerCase().includes(searchCity.toLowerCase()) 
-        && outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) 
-        && (searchOccasion === "" || outfit.occasion.toLowerCase() === searchOccasion.toLowerCase())
-        && outfit.rain === true;
-    }
-  });
+  const [minTemp, maxTemp] = outfit.temp_range.split('-');
+  const searchTermInt = parseInt(searchTerm);
+  return (
+    (outfit.city.toLowerCase().includes(searchCity.toLowerCase()) || searchCity === "")
+    && (outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) || searchUsername === "")
+    && (outfit.occasion.toLowerCase().includes(searchOccasion.toLowerCase()) || searchOccasion === "")
+    && (outfit.rain === (searchRain === "true") || searchRain === "")
+    && ((searchTermInt >= minTemp && searchTermInt <= maxTemp) || searchTerm === "")
+  );
+});
+
 
   setDisplayedOutfits(filteredOutfits);
 }, [searchTerm, searchCity, searchUsername, searchOccasion, searchRain, outfits]);
@@ -60,33 +52,4 @@ useEffect(() => {
   );
 }
 
-  // const displayedOutfits = outfits.filter((outfit) => {
-  //   console.log(outfit)
-  //   return (outfit.temp.split("-")[0] <= parseInt(searchTerm) && outfit.temp.split("-")[1] >= parseInt(searchTerm))
-  //   && outfit.city.toLowerCase().includes(searchCity.toLowerCase()) 
-  //   && outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) 
-  //   && (searchOccasion === "" || outfit.occasion.toLowerCase() === searchOccasion.toLowerCase()) 
-  //   && (searchRain === "" || outfit.rain === (searchRain === "true"));
-    // outfit.temp.toString().includes(searchTerm.toString()) 
-  // });
-
-
-// useEffect(() => {
-//   const filteredOutfits = outfits.filter((outfit) => {
-//   const [minTemp, maxTemp] = outfit.temp_range.split('-');
-//   const searchTermInt = parseInt(searchTerm);
-//   return searchTermInt >= parseInt(minTemp) 
-//     && searchTermInt <= parseInt(maxTemp)
-//     && outfit.city.toLowerCase().includes(searchCity.toLowerCase()) 
-//     && outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) 
-//     && (searchOccasion === "" || outfit.occasion.toLowerCase() === searchOccasion.toLowerCase()) 
-//     && (searchRain === "" || outfit.rain === (searchRain === "true"));
   
-//   });
-
-//   setDisplayedOutfits(filteredOutfits);
-// }, [searchTerm, searchCity, searchUsername, searchOccasion, searchRain]);
-
-//   useEffect(() => {
-//     setDisplayedOutfits([...outfits]);
-//   }, [outfits]);
