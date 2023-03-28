@@ -4,7 +4,7 @@ import { useState } from 'react';
 export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitInCloset, setHangersInCloset }) {
     const [model, setModel] = useState(false)
     // console.log('popup', outfit.outfit_img)
-    // console.log('popup user', user)
+    
     const { name, temp_range, rain, occasion, city, created_by } = hangerInCloset.outfit || {};
 
       function handleDelete () {
@@ -15,6 +15,16 @@ export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitI
     .then(() => {
       setHangersInCloset(hangersInCloset => hangersInCloset.filter(hanger=> hanger.id !== hangerInCloset.id))
     })
+  }
+
+  function handleDeleteOutfit () {
+    console.log('hanger.outfit.id', hangerInCloset.outfit.id)
+          fetch(`http://localhost:3000/outfits/${hangerInCloset.outfit.id}`, {
+      method: 'DELETE'
+    })
+    // .then(() => {
+    //   setHangersInCloset(hangersInCloset => hangersInCloset.filter(hanger=> hanger.id !== hangerInCloset.id))
+    // })
   }
     
     
@@ -49,14 +59,21 @@ return (
       :
       (<p class="max-w-2xs pr-10">No Rain</p>)}
     <p class="max-w-2xs pr-10">{temp_range}°C</p>
+             <button class="h-10 w-20 bg-blueGray-900 rounded">
+            <div class="top-0 left-0 w-full h-full transition duration-300">
+              <div onClick={handleDelete} class=" items-center bg-white border-2 border-blueGray-900 rounded">
+              <span class="text-base uppercase">Delete from Closet</span>
+             </div>
+            </div>
+          </button>
 
     {user.username === hangerInCloset.outfit.created_by ?
       (
       <>
           <button class="h-10 w-20 bg-blueGray-900 rounded">
             <div class="top-0 left-0 w-full h-full transition duration-300">
-              <div onClick={handleDelete} class=" items-center bg-white border-2 border-blueGray-900 rounded">
-              <span class="text-base uppercase">Delete</span>
+              <div onClick={handleDeleteOutfit} class=" items-center bg-white border-2 border-blueGray-900 rounded">
+              <span class="text-base uppercase">Permanent Delete</span>
              </div>
             </div>
           </button>

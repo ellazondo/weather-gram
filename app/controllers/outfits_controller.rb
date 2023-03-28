@@ -24,6 +24,12 @@ class OutfitsController < ApplicationController
         render json: new_outfit, status: :created
     end
 
+    def destroy
+        outfit = Outfit.find(params[:id])
+        outfit.destroy
+        head :no_content
+    end
+
    
     private
 
