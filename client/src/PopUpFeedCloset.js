@@ -1,8 +1,10 @@
 import UpdateOutfitInCloset from "./UpdateOutfitInCloset";
 import { useState } from 'react';
+import OutfitBreakdown from "./OutfitBreakdown";
 
 export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitInCloset, setHangersInCloset }) {
     const [model, setModel] = useState(false)
+    const [secondModel, setSecondModel] = useState(false)
     // console.log('popup', outfit.outfit_img)
     
     const { name, temp_range, rain, occasion, city, created_by } = hangerInCloset.outfit || {};
@@ -30,8 +32,6 @@ export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitI
     
 // const [minTemp, maxTemp] = outfit.temp_range.split('-');
 return (
-  // SOMETHING IS WEIRD WITH THE DELETE UPDATE BUTTONS WHEN 
-  // THE UPDATEOUTFITINCLOSET MODEL POPS UP. REFER BACK TO GITHUB. THE "closet stling is done"
   
     
  <>
@@ -41,6 +41,17 @@ return (
             id = {hangerInCloset.outfit?.id}
             onUpdateOutfitInCloset={onUpdateOutfitInCloset}
             hangerInCloset={hangerInCloset} />
+            </div>
+              )
+            :
+            null}
+
+            {secondModel ? (
+                <div className="relative">
+            <OutfitBreakdown
+            //  id={hangerInCloset.outfit?.id}
+            hangerInCloset={hangerInCloset}
+            />
             </div>
               )
             :
@@ -63,6 +74,13 @@ return (
             <div class="top-0 left-0 w-full h-full transition duration-300">
               <div onClick={handleDelete} class=" items-center bg-white border-2 border-blueGray-900 rounded">
               <span class="text-base uppercase">Delete from Closet</span>
+             </div>
+            </div>
+          </button>
+                    <button class="h-5 w-30 bg-blueGray-900 rounded">
+            <div class="top-0 left-0 w-full h-full transition duration-300">
+              <div onClick={() => setSecondModel(!model)} class=" items-center bg-white border-2 border-blueGray-900 rounded">
+              <span class="text-base uppercase">Shop this look</span>
              </div>
             </div>
           </button>
