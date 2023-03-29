@@ -204,7 +204,10 @@ export default function App() {
             }
           </Route>
           <Route path="/todaysfeed">
-            {user ?  <Feed outfits={outfits} onAddHanger={handleAddHanger} user={user} /> : "Please log in to view today's feed"}
+            {user ?  
+            
+            <Feed outfits={outfits} onAddHanger={handleAddHanger} user={user} /> : "Please log in to view today's feed"}
+            
           </Route>
           <Route path="/users">
             {user ? <Users wgUsers={wgUsers} /> : "Please log in to see the users of Weather Gram"}

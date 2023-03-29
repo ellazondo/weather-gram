@@ -105,13 +105,13 @@ export default function NewOutfitForm({ onAddOutfit, user }) {
         onChange={(e) => setNewOutfitOccasion(e.target.value)}
       >
         <option value="">Occasion</option>
-        <option value="streetwear">Streetwear</option>
-        <option value="sporty">Sporty</option>
-        <option value="brunch">Brunch</option>
-        <option value="dinner_party">Dinner Party</option>
-        <option value="going_out">Going Out</option>
-        <option value="festival">Festival</option>
-        <option value="wedding">Wedding</option>
+        <option value="Streetwear">Streetwear</option>
+        <option value="Sporty">Sporty</option>
+        <option value="Brunch">Brunch</option>
+        <option value="Dinner Party">Dinner Party</option>
+        <option value="Going Out">Going Out</option>
+        <option value="Festival">Festival</option>
+        <option value="Wedding">Wedding</option>
 
         </select>
         </div>

@@ -5,7 +5,7 @@ export default function OutfitList({ outfits, weatherData, onAddHanger, user }) 
   // console.log(outfits)
   return (
     
-    <ul className="cards">
+    <ul className="flex flex-wrap">
       {outfits.map((outfit) => {
 
         // console.log(weatherData.temperature)

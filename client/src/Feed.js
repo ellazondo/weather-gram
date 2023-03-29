@@ -10,9 +10,9 @@ export default function Feed({ outfits, onAddHanger, user }) {
   const [city, setCity] = useState("New York");
 
   function handleResponse (response) {
-    
+    console.log('feed', response.data)
     setWeatherData({
-      coord: response.data.coordinates,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -59,8 +59,9 @@ export default function Feed({ outfits, onAddHanger, user }) {
        
       </form>
       <div className="flex flex-col items-center justify-center w-screen text-gray-700 p-10 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 ">
-      <WeatherInfo data={weatherData} />
+      <WeatherInfo data={weatherData} coordinates={weatherData.coordinates} />
       </div>
+      
       <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
       
       </>
