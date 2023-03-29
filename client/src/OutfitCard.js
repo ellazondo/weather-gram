@@ -10,7 +10,7 @@ export default function OutfitCard({ outfit, onAddHanger, user }) {
 
   return (
     <li className="card">
-              <div class="w-full 2xl:w-1/2 px-4 mb-20 2xl:mb-0">
+              <div class="w-full px-4 mb-20 2xl:mb-0">
             <a class="group block max-w-md mx-auto" onClick={() => setModel(!model)}> 
             {model ? (
             <PopUpFeedOutfit

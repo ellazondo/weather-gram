@@ -41,6 +41,9 @@ return (
             id = {hangerInCloset.outfit?.id}
             onUpdateOutfitInCloset={onUpdateOutfitInCloset}
             hangerInCloset={hangerInCloset} />
+            <div>
+            <button className="text-black" onClick={() => setModel(false)}>Exit</button>
+            </div>
             </div>
               )
             :

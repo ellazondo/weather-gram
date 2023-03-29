@@ -1,26 +1,35 @@
 
 import FormattedDate from './FormattedDate';
 import WeatherIcon from "./WeatherIcon";
-import {useState} from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function WeatherInfo (props) {
 const [weatherForecast, setWeatherForecast] = useState({});
     // console.log('props', props)
-    function handleResponseForecast (response) {
-        // console.log('handleResponseForecast', response.data.list[0].main.temp_max)
-             setWeatherForecast(response.data.list)
-    }
-    console.log('weatherforecast', weatherForecast)
-    
-
-        let apiKey = "21f3a11c368ff6b8b2c89b2723f2e880";
+    let apiKey = "e450bc345a80a08ada69fd5c714d871d";
+        //andrew 196ff4c66167591068d312e81eea6870
+        // me me 21f3a11c368ff6b8b2c89b2723f2e880
+        //she codes: aa09763d916df0424c840d55bfc2d2c9
         // 7e51999498b98449960c3d517772a9e2
         let lon = props.coordinates.lon;
         let lat = props.coordinates.lat;
         let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+    
+    function handleResponseForecast (response) {
+        // console.log('handleResponseForecast', response.data.list[0].main.temp_max)
+             setWeatherForecast(response.data.list)
+    }
+    
+    
 
-        axios.get(apiUrl).then(handleResponseForecast);
+        
+useEffect(() => {
+  axios.get(apiUrl).then((response) => {
+    setWeatherForecast(response.data.list);
+  });
+}, [apiUrl])
+        // axios.get(apiUrl).then(handleResponseForecast);
         
     
         return (

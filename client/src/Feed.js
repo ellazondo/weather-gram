@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import "./Weather.css";
 import axios from "axios";
 import Fashion from "./Fashion";
@@ -25,11 +25,21 @@ export default function Feed({ outfits, onAddHanger, user }) {
     
   }
 
+  
+
+ 
+
   function search() {
-    const apiKey = "7e51999498b98449960c3d517772a9e2";
+
+    const apiKey = "e450bc345a80a08ada69fd5c714d871d";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     axios.get(apiUrl).then(handleResponse);
+ 
   }
+
+  useEffect(() => {
+    search();
+  }, [])
   
 
   function handleSubmit(e) {
@@ -42,7 +52,7 @@ export default function Feed({ outfits, onAddHanger, user }) {
     setCity(e.target.value);
   }
 
-  if (ready) {
+  // if (ready) {
     return (
       <>
       <form onSubmit={handleSubmit}>
@@ -58,6 +68,8 @@ export default function Feed({ outfits, onAddHanger, user }) {
           
        
       </form>
+      {ready ? (
+        <>
       <div className="flex flex-col items-center justify-center w-screen text-gray-700 p-10 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 ">
       <WeatherInfo data={weatherData} coordinates={weatherData.coordinates} />
       </div>
@@ -65,10 +77,12 @@ export default function Feed({ outfits, onAddHanger, user }) {
       <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
       
       </>
+      ) : (
+         "loading..."
+    )}
+    </>
+
     );
-  } else { 
-    search();
-    return ("loading...");
+    
   }
   
-}
