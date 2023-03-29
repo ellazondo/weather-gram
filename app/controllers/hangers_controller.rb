@@ -4,12 +4,13 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
     def index
         hangers = Hanger.all
-        render json: hangers, status: :ok
+        render json: hangers
     end
 
     def show
         hanger = Hanger.find(params[:id])
-        render json: hanger 
+        render json: hanger
+
     end
 
     def create
@@ -43,3 +44,6 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
     end
 end
+
+        # , each_serializer: HangerOutfitsSerializer,
+        # include: ['outfits.top','outfits.bottom','outfits.shoe']

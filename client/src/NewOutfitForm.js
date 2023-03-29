@@ -25,6 +25,24 @@ export default function NewOutfitForm({ onAddOutfit, user }) {
         city: newOutfitCity,
         outfit_img: newOutfitImage,
         created_by: user.username,
+        "top": {
+            "id": 3,
+            "top_name": "Black Hoodie",
+            "top_img": "https://img01.ztat.net/article/spp-media-p1/8e7b88edb51c475d925c285068d674fc/3b63b5ca90564aefa03c32392c377652.jpg?imwidth=1800",
+            "zalando_link": "https://www.zalando.nl/pullandbear-sweater-mottled-black-puc21007q-q11.html"
+        },
+        "bottom": {
+            "id": 1,
+            "bottom_name": "High-Waist Straight Fit Jeans",
+            "bottom_img": "https://img01.ztat.net/article/spp-media-p1/42f5abbc896a4c4d97955b1be938e5f1/41760d96567a4d1b95925d1c5d5aab3c.jpg?imwidth=1800&filter=packshot",
+            "zalando_link": "https://www.zalando.nl/gina-tricot-petite-high-waist-relaxed-fit-jeans-washed-grey-gil21n009-c14.html"
+        },
+        "shoe": {
+            "id": 1,
+            "shoe_name": "Ugg Classic Mini",
+            "shoe_img": "https://img01.ztat.net/article/spp-media-p1/2a05c336c42b32adbd932e22d4cd5a6f/d487b1af3f7b4012945ca731af11492d.jpg?imwidth=1800",
+            "zalando_link": "https://www.zalando.nl/ugg-classic-mini-ii-korte-laarzen-ug111y00a-b12.html"
+        }
 
         
 
@@ -105,13 +123,13 @@ export default function NewOutfitForm({ onAddOutfit, user }) {
         onChange={(e) => setNewOutfitOccasion(e.target.value)}
       >
         <option value="">Occasion</option>
-        <option value="streetwear">Streetwear</option>
-        <option value="sporty">Sporty</option>
-        <option value="brunch">Brunch</option>
-        <option value="dinner_party">Dinner Party</option>
-        <option value="going_out">Going Out</option>
-        <option value="festival">Festival</option>
-        <option value="wedding">Wedding</option>
+        <option value="Streetwear">Streetwear</option>
+        <option value="Sporty">Sporty</option>
+        <option value="Brunch">Brunch</option>
+        <option value="Dinner Party">Dinner Party</option>
+        <option value="Going Out">Going Out</option>
+        <option value="Festival">Festival</option>
+        <option value="Wedding">Wedding</option>
 
         </select>
         </div>

@@ -1,4 +1,5 @@
 export default function OutfitBreakdwon ({hangerInCloset}) {
+  
    return (
   
    <div className="fixed top-1 left-0 right-0 w-fullcontainer mx-auto px-6 py-18 md:py-30 bg-white rounded-4xl">

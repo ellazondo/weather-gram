@@ -1,9 +1,15 @@
 class Outfit < ApplicationRecord
-    has_many :hangers 
+  # seb  
+  # belongs_to :hanger 
+    has_many :hangers
     has_many :users, through: :hangers
-    belongs_to :top
-    belongs_to :bottom
-    belongs_to :shoe
+    has_one :top
+    has_one :bottom
+    has_one :shoe
+    # seb
+    # belongs_to :top
+    # belongs_to :bottom
+    # belongs_to :shoe
 
     validates :name, uniqueness: true
     # validates :temp_range, presence: true, format: { with: /\A\d+-\d+\z/, message: "must be in the format of '0-35'" }

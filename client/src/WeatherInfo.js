@@ -1,9 +1,27 @@
 import FormattedDate from './FormattedDate';
 import WeatherIcon from "./WeatherIcon";
+import {useState} from "react";
+import axios from "axios";
 
 export default function WeatherInfo (props) {
-    console.log(props)
-    return (
+const [weatherForecast, setWeatherForecast] = useState({});
+    // console.log('props', props)
+    function handleResponseForecast (response) {
+        // console.log('handleResponseForecast', response.data.list[0].main.temp_max)
+             setWeatherForecast(response.data.list)
+    }
+    console.log('weatherforecast', weatherForecast)
+    
+
+        let apiKey = "7e51999498b98449960c3d517772a9e2";
+        let lon = props.coordinates.lon;
+        let lat = props.coordinates.lat;
+        let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+
+        axios.get(apiUrl).then(handleResponseForecast);
+        
+    
+        return (
     
         <div  className="w-full max-w-screen-sm bg-white p-10 rounded-xl ring-8 ring-white ring-opacity-40">
 

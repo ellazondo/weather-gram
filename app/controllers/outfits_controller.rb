@@ -4,12 +4,12 @@ class OutfitsController < ApplicationController
 
     def index 
         outfits = Outfit.all
-        render json: outfits, status: :ok
+        render json: outfits
     end
 
     def show
         outfit = Outfit.find(params[:id])
-        render json: outfit, serializer: OutfitBreakdownSerializer
+        render json: outfit
     end
 
     def update

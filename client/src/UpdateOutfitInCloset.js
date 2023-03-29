@@ -17,7 +17,7 @@ export default function UpdateOutfitInCloset ( {hangerInCloset, id, onUpdateOutf
     })
       .then((r) => r.json())
       .then((updatedOutfit) => {
-        onUpdateOutfitInCloset(updatedOutfit);
+        setUpdatedOutfitInCloset(updatedOutfit);
       });
   }
 
@@ -65,14 +65,34 @@ export default function UpdateOutfitInCloset ( {hangerInCloset, id, onUpdateOutf
 					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, rain: e.target.value})}/>
               </div>
 
-              <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+              {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
 				<input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 
 					type="text" 
 					name="occasion"
 					placeholder="occasion" 
 					value={updatedOutfitInCloset.occasion} 
 					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, occasion: e.target.value})}/>
-              </div>
+              </div> */}
+
+        <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+        <select
+        id="search"
+        value={updatedOutfitInCloset.occasion} 
+        onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, occasion: e.target.value})}
+      >
+        <option value="">Occasion</option>
+        <option value="Streetwear">Streetwear</option>
+        <option value="Sporty">Sporty</option>
+        <option value="Brunch">Brunch</option>
+        <option value="Dinner Party">Dinner Party</option>
+        <option value="Going Out">Going Out</option>
+        <option value="Festival">Festival</option>
+        <option value="Wedding">Wedding</option>
+
+        </select>
+        </div>
+
+
 
               <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
 				<input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 
@@ -99,6 +119,33 @@ export default function UpdateOutfitInCloset ( {hangerInCloset, id, onUpdateOutf
 					placeholder="username" 
 					value={updatedOutfitInCloset.created_by} 
 					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, created_by: e.target.value})}/>
+              </div>
+
+          <div className="invisible">
+				<input className="" 
+					type="text" 
+					name="top"
+					placeholder="top" 
+					value={updatedOutfitInCloset.top} 
+					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, top: "NULL"})}/>
+              </div>
+
+          <div className="invisible">
+				<input className="text-white" 
+					type="text" 
+					name="bottom"
+					placeholder="bottom" 
+					value={updatedOutfitInCloset.bottom} 
+					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, bottom: "NULL"})}/>
+              </div>
+
+        <div className="invisible">
+				<input className="text-white" 
+					type="text" 
+					name="shoe"
+					placeholder="shoe" 
+					value={updatedOutfitInCloset.shoe} 
+					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, shoe: "NULL"})}/>
               </div>
 
               <div className="text-center">
