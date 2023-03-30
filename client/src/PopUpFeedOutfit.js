@@ -48,7 +48,13 @@ return (
 </li>
 <li> Created by: {outfit.created_by} </li>
 </ul>
-<button onClick={handleSave}> Save to closet</button> 
+<a onClick={handleSave} class="group relative inline-block h-16 w-full sm:w-40 bg-blueGray-900 rounded cursor-pointer">
+  <div class="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
+    <div class="flex h-full w-full items-center justify-center bg-white border-2 border-blueGray-900 rounded">
+      <span class="text-base font-semibold uppercase">Save to Closet</span>
+    </div>
+  </div>
+</a>
 
     {/* <button 
       className="h-5 w-30 bg-blueGray-900 rounded"

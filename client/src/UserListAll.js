@@ -3,7 +3,7 @@ import React from "react";
 
 export default function UserListAll ({ wgUsers, onAddHanger, user }) {
     return (
-        <ul className="cards">
+        <ul className="flex flex-wrap">
       {wgUsers.map((wgUser) => {
         return (
  

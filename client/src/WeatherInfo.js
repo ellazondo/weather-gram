@@ -5,6 +5,7 @@ import WeatherIcon from "./WeatherIcon";
 // import axios from "axios";
 
 export default function WeatherInfo (props) {
+  console.log('props WeatherInfo', props.data.date)
 
         
     
@@ -16,16 +17,18 @@ export default function WeatherInfo (props) {
 
       <div  className="flex flex-col">
         <span  className="text-6xl font-bold">{Math.round(props.data.temperature)}°C</span>
-        <span  className="font-semibold mt-1 text-gray-500">{props.data.city}</span>
-        <span  className="italic text-gray-500">{props.data.description}</span>
+        <span  className="text-3xl font-semibold mt-1 text-gray-500">{props.data.city}</span>
+        <span  className="italic text-gray-500">
+        <FormattedDate date={props.data.date} /></span>
       </div>
-      
+
       <div   className="text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-24 w-24">
       {/* <svg  className="h-24 w-24 fill-current text-yellow-400" height="24" viewBox="0 0 24 24" width="24"> */}
       <WeatherIcon code={props.data.icon} />
       
-      {/* </svg> */}
+      <span  className="flex italic text-gray-500">{props.data.description}</span>
       </div>
+      
       
     </div>
 

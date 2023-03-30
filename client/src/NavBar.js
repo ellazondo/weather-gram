@@ -16,14 +16,14 @@ export default function NavBar({user, onLogout}){
         <div class="mr-12">
           <ul class="hidden xl:flex items-center">
             <li class="relative group mr-16">
-              <button class="inline-block text-left text-base font-medium text-black">
+              {/* <button class="inline-block text-left text-base font-medium text-black">
                 <div class="flex items-center">
                   <span class="mr-3">Resources</span>
                   <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.332 0.999974L10.3887 0.0566406L6.66536 3.77997L5.9987 4.5L5.33203 3.77997L1.6087 0.0566402L0.665365 0.999974L5.9987 6.33331L11.332 0.999974Z" fill="currentColor"></path>
                   </svg>
                 </div>
-              </button>
+              </button> */}
               <div class="hidden group-hover:block absolute z-20 bottom-0 left-0 w-52 pt-4 transform translate-y-full">
                 <div class="py-4 px-6 bg-white rounded-lg border-2 border-blueGray-900"><a class="block mb-2 text-xs" href="#">Link 1</a><a class="block mb-2 text-xs" href="#">Link 1</a><a class="block text-xs" href="#">Link 1</a></div>
               </div>
@@ -61,19 +61,19 @@ export default function NavBar({user, onLogout}){
           <img src="https://i.imgur.com/1ITyB86.png" alt="" />
         </a>
         <ul class="w-full mb-auto pb-16">
-          <li class="group mb-6">
-            <button class="inline-block text-left text-base font-medium text-black">
-              <div class="flex items-center">
-                <span class="mr-3">Resources</span>
+          {/* <li class="group mb-6"> */}
+            {/* <button class="inline-block text-left text-base font-medium text-black"> */}
+              {/* <div class="flex items-center"> */}
+                {/* <span class="mr-3">Resources</span>
                 <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.332 0.999974L10.3887 0.0566406L6.66536 3.77997L5.9987 4.5L5.33203 3.77997L1.6087 0.0566402L0.665365 0.999974L5.9987 6.33331L11.332 0.999974Z" fill="currentColor"></path>
-                </svg>
-              </div>
-            </button>
-            <div class="hidden group-hover:block pt-4">
+                </svg> */}
+              {/* </div> */}
+            {/* </button> */}
+            {/* <div class="hidden group-hover:block pt-4">
               <div class="pl-6"><a class="block mb-2 text-black" href="#">Link 1</a><a class="block mb-2 text-black" href="#">Link 1</a><a class="block text-black" href="#">Link 1</a></div>
-            </div>
-          </li>
+            </div>  */}
+          {/* </li> */}
           {/* <li class="mb-6"><a class="inline-block text-base font-medium text-black" href="#">Community</a></li> */}
           <Link to="/todaysfeed">Today's Feed</Link>
           {/* <li class="mb-6"><a class="inline-block text-base font-medium text-black" href="#">Story</a></li> */}

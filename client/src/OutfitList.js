@@ -22,7 +22,7 @@ export default function OutfitList({ outfits, weatherData, onAddHanger, user }) 
             user={user}
           />
         );
-        }
+        } 
         
       })}
     </ul>
