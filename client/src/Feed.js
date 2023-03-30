@@ -3,12 +3,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Fashion from "./Fashion";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Feed({ outfits, onAddHanger, user }) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState("New York");
 
+
+  //daily weather
   function handleResponse (response) {
     console.log('feed', response.data)
     setWeatherData({
@@ -25,13 +28,9 @@ export default function Feed({ outfits, onAddHanger, user }) {
     
   }
 
-  
-
- 
-
   function search() {
 
-    const apiKey = "e450bc345a80a08ada69fd5c714d871d";
+    const apiKey = "1a2b7258ebd456c01aef9175dfe8b709";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     axios.get(apiUrl).then(handleResponse);
  
@@ -71,11 +70,19 @@ export default function Feed({ outfits, onAddHanger, user }) {
       {ready ? (
         <>
       <div className="flex flex-col items-center justify-center w-screen text-gray-700 p-10 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200 ">
-      <WeatherInfo data={weatherData} coordinates={weatherData.coordinates} />
+      <WeatherInfo 
+      // weatherData={weatherData}
+      
+      data={weatherData} 
+      coordinates={weatherData.coordinates} 
+      />
       </div>
       
       <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
       
+      <div className="flex flex-col items-center justify-center w-screen text-gray-700 p-10 bg-gradient-to-br from-pink-200 via-purple-200 to-indigo-200">
+      <WeatherForecast data={weatherData} coordinates={weatherData.coordinates}  />
+      </div>
       </>
       ) : (
          "loading..."

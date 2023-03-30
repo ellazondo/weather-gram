@@ -1,6 +1,5 @@
 import UpdateOutfitInCloset from "./UpdateOutfitInCloset";
 import { useState } from 'react';
-import OutfitBreakdown from "./OutfitBreakdown";
 
 export default function PopUpFeedCloset ({ user, hangerInCloset, onUpdateOutfitInCloset, setHangersInCloset }) {
     const [model, setModel] = useState(false)
@@ -42,7 +41,7 @@ return (
             onUpdateOutfitInCloset={onUpdateOutfitInCloset}
             hangerInCloset={hangerInCloset} />
             <div>
-            <button className="text-black" onClick={() => setModel(false)}>Exit</button>
+            <button className="absolute visible text-black" onClick={() => setModel(false)}>Exit</button>
             </div>
             </div>
               )
@@ -73,10 +72,10 @@ return (
       :
       (<p class="max-w-2xs pr-10">No Rain</p>)}
     <p class="max-w-2xs pr-10">{temp_range}°C</p>
-             <button class="h-10 w-20 bg-blueGray-900 rounded">
-            <div class="top-0 left-0 w-full h-full transition duration-300">
+             <button class="left-0 h-10 w-50 mt-1 bg-blueGray-900 rounded">
+            <div class=" h-full transition duration-300">
               <div onClick={handleDelete} class=" items-center bg-white border-2 border-blueGray-900 rounded">
-              <span class="text-base uppercase">Delete from Closet</span>
+              <span class="text-base uppercase">Closet DELETE</span>
              </div>
             </div>
           </button>
@@ -91,15 +90,15 @@ return (
     {user.username === hangerInCloset.outfit.created_by ?
       (
       <>
-          <button class="h-10 w-20 bg-blueGray-900 rounded">
+          <button class="h-10 w-50 bg-blueGray-900 rounded">
             <div class="top-0 left-0 w-full h-full transition duration-300">
               <div onClick={handleDeleteOutfit} class=" items-center bg-white border-2 border-blueGray-900 rounded">
               <span class="text-base uppercase">Permanent Delete</span>
              </div>
             </div>
           </button>
-          <button class=" h-10 w-25 bg-blueGray-900 rounded">
-            <div class="top-0 left-0 h-full transition duration-300">
+          <button class=" h-10 w-50 bg-blueGray-900 rounded">
+            <div class="left-0 h-full transition duration-300 mt-5">
               <div onClick={() => setModel(!model)} class=" items-center bg-white border-2 border-blueGray-900 rounded">
               <span class="text-base font-semibold uppercase">Update Outfit</span>
              </div>

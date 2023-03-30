@@ -10,6 +10,7 @@ import NavBar from './NavBar';
 import LoggedOutNavBar from './LoggedOutNavBar';
 import MyCloset from './MyCloset';
 import Home from './Home';
+import OutfitBreakdown from './OutfitBreakdown';
 
 
 export default function App() {
@@ -173,6 +174,7 @@ export default function App() {
           user ?
           <>
             <NavBar user={user} onLogout={onLogout}/>
+            
 
             <br/>
             
@@ -192,7 +194,8 @@ export default function App() {
           <Route path="/login">
             {
               user ?
-              <Home />  : 
+              <Home />
+                : 
               <Login onLogin={onLogin} updateLoginFormData={updateLoginFormData}  />
             }
           </Route>
@@ -215,8 +218,11 @@ export default function App() {
           <Route path="/outfitinspo">
             {user ? <OutfitInspo outfits={outfits} user={user} /> : "Please log in to see outfit inspiration"}
           </Route>
+          <Route path="/outfitbreakdown">
+            {user ? <OutfitBreakdown outfits={outfits} user={user} /> : "Please log in to shop the looks"}
+          </Route>
           <Route path="/mycloset">
-            {user ? <MyCloset user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "Please log in to access your closet"}
+            {user ? <MyCloset user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : <Home />}
           </Route>
         </Switch>
         </header>

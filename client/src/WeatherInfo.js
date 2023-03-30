@@ -1,35 +1,11 @@
 
 import FormattedDate from './FormattedDate';
 import WeatherIcon from "./WeatherIcon";
-import { useState, useEffect } from "react";
-import axios from "axios";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
 
 export default function WeatherInfo (props) {
-const [weatherForecast, setWeatherForecast] = useState({});
-    // console.log('props', props)
-    let apiKey = "e450bc345a80a08ada69fd5c714d871d";
-        //andrew 196ff4c66167591068d312e81eea6870
-        // me me 21f3a11c368ff6b8b2c89b2723f2e880
-        //she codes: aa09763d916df0424c840d55bfc2d2c9
-        // 7e51999498b98449960c3d517772a9e2
-        let lon = props.coordinates.lon;
-        let lat = props.coordinates.lat;
-        let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
-    
-    function handleResponseForecast (response) {
-        // console.log('handleResponseForecast', response.data.list[0].main.temp_max)
-             setWeatherForecast(response.data.list)
-    }
-    
-    
 
-        
-useEffect(() => {
-  axios.get(apiUrl).then((response) => {
-    setWeatherForecast(response.data.list);
-  });
-}, [apiUrl])
-        // axios.get(apiUrl).then(handleResponseForecast);
         
     
         return (
@@ -37,51 +13,77 @@ useEffect(() => {
         <div  className="w-full max-w-screen-sm bg-white p-10 rounded-xl ring-8 ring-white ring-opacity-40">
 
     <div  className="flex justify-between">
+
       <div  className="flex flex-col">
         <span  className="text-6xl font-bold">{Math.round(props.data.temperature)}°C</span>
         <span  className="font-semibold mt-1 text-gray-500">{props.data.city}</span>
+        <span  className="italic text-gray-500">{props.data.description}</span>
       </div>
-      <div   className="mt-6 text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-24 w-24">
+      
+      <div   className="text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-24 w-24">
       {/* <svg  className="h-24 w-24 fill-current text-yellow-400" height="24" viewBox="0 0 24 24" width="24"> */}
       <WeatherIcon code={props.data.icon} />
+      
       {/* </svg> */}
       </div>
+      
     </div>
 
- <div  className="flex justify-between mt-12">
+ {/* beginning of weather forecast     */}
 
-      <div  className="flex flex-col items-center">
-        <span  className="font-semibold text-lg">{Math.round(props.data.temperature)}°C</span>
+ {/* <div  className="flex justify-between mt-12"> */}
 
-
-      <div   className="mt-3 mb-3 text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-10 w-10">
+ 
+{/* first */}
+        {/* <div  className="flex flex-col items-center"> */}
+        {/* <div className="inline">
+        <span  className="font-semibold text-lg">{Math.round(weatherForecast[0].main.temp_min)} </span>
+        <span  className="text-lg">
+        | {Math.round(weatherForecast[0].main.temp_max)}°C </span>
+        </div> */}
+        {/* <div   className="mt-3 mb-3 text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-10 w-10">
       <WeatherIcon code={props.data.icon} />
-      </div>
-
-
-
+      </div> */}
         {/* <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495l1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115l1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96l1.41 1.41 1.79-1.8-1.41-1.41z"/></svg> */}
-        <span  className="font-semibold mt-1 text-sm">
-            <FormattedDate date={props.data.date} />
+        {/* <span  className="font-semibold mt-1 text-sm">
+          <FormattedDate date={props.data.date} />
         </span>
+        <span  className="text-xs font-semibold text-gray-400"></span>
+      </div> */}
+{/* second */}
+      {/* <div  className="flex flex-col items-center"> */}
+        {/* <div className="inline">
+        <span  className="font-semibold text-lg">{Math.round(weatherForecast[1].main.temp_min)} </span>
+        <span  className="text-lg">
+        | {Math.round(weatherForecast[1].main.temp_max)}°C </span>
+        </div> */}
+      {/* <div   className="mt-3 mb-3 text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-10 w-10">
+      <WeatherIcon code={weatherForecast.weather.icon} />
+      </div> */}
+        {/* <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495l1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115l1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96l1.41 1.41 1.79-1.8-1.41-1.41z"/></svg> */}
+        {/* <span  className="font-semibold mt-1 text-sm">1:00</span>
         <span  className="text-xs font-semibold text-gray-400"></span>
       </div>
 
-      <div  className="flex flex-col items-center">
-        <span  className="font-semibold text-lg">31°C</span>
-        <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495l1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115l1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96l1.41 1.41 1.79-1.8-1.41-1.41z"/></svg>
+      <div  className="flex flex-col items-center"> */}
+        {/* <div className="inline">
+        <span  className="font-semibold text-lg">{Math.round(weatherForecast[2].main.temp_min)} </span>
+        <span  className="text-lg">
+        | {Math.round(weatherForecast[2].main.temp_max)}°C </span>
+        </div> */}
+        {/* <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495l1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115l1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96l1.41 1.41 1.79-1.8-1.41-1.41z"/></svg>
         <span  className="font-semibold mt-1 text-sm">1:00</span>
-        <span  className="text-xs font-semibold text-gray-400">PM</span>
-      </div>
+        <span  className="text-xs font-semibold text-gray-400"></span>
+      </div> */}
 
-      <div  className="flex flex-col items-center">
+      {/* <div  className="flex flex-col items-center">
         <span  className="font-semibold text-lg">32°C</span>
         <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12.01 6c2.61 0 4.89 1.86 5.4 4.43l.3 1.5 1.52.11c1.56.11 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3h-13c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.95 6 12.01 6m0-2C9.12 4 6.6 5.64 5.35 8.04 2.35 8.36.01 10.91.01 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96C18.68 6.59 15.65 4 12.01 4z"/></svg>
         <span  className="font-semibold mt-1 text-sm">3:00</span>
         <span  className="text-xs font-semibold text-gray-400">PM</span>
-      </div>
+      </div> */}
 
-      <div  className="flex flex-col items-center">
+      {/* <div  className="flex flex-col items-center">
         <span  className="font-semibold text-lg">31°C</span>
         <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12.01 6c2.61 0 4.89 1.86 5.4 4.43l.3 1.5 1.52.11c1.56.11 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3h-13c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.95 6 12.01 6m0-2C9.12 4 6.6 5.64 5.35 8.04 2.35 8.36.01 10.91.01 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96C18.68 6.59 15.65 4 12.01 4z"/></svg>
         <span  className="font-semibold mt-1 text-sm">5:00</span>
@@ -95,7 +97,7 @@ useEffect(() => {
         <span  className="text-xs font-semibold text-gray-400">PM</span>
       </div>
 
-    </div>
+    </div> */}
 
   </div>
       
