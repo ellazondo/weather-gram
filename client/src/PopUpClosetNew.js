@@ -5,7 +5,19 @@ export default function PopUpClosetNew ({ user, hangerInCloset, onUpdateOutfitIn
     const [modal, setmodal] = useState(false)
     console.log('popup closet', hangerInCloset)
     
+    
+
     const { name, outfit_img, temp_range, rain, occasion, city, created_by } = hangerInCloset.outfit || {};
+
+    
+    // const { top_img, zalando_link } = hangerInCloset.outfit.top
+    // const { bottom_img } = hangerInCloset.outfit.bottom
+    // const { shoe_img } = hangerInCloset.outfit.shoe
+
+   
+
+    
+
 
       function handleDelete () {
       // console.log(id)
@@ -56,15 +68,20 @@ return (
               <a className="block md:w-32 h-32 border border-blue-300" href="#">
                 <img className="w-full h-full p-1 lg:p-0 mr-2 lg:mr-0 object-cover" src={outfit_img} alt="" />
               </a>
-              <a className="block md:w-32 h-32 border border-transparent hover:border-gray-400" href="#" >
-                <img className="w-full h-full p-1 lg:p-0 mr-2 lg:mr-0 object-cover" src={outfit_img} alt="" />
+              { hangerInCloset.outfit.top ? 
+              (<>
+              <a className="block md:w-32 h-32 border border-transparent hover:border-gray-400" target="_blank" href={hangerInCloset.outfit.top.zalando_link} >
+                <img className="w-full h-full p-1 lg:p-0 mr-2 lg:mr-0 object-cover" src={hangerInCloset.outfit.top.top_img} alt="" />
               </a>
-              <a className="block md:w-32 h-32 border border-transparent hover:border-gray-400" href="#">
-                <img className="w-full h-full p-1 lg:p-0 mr-2 lg:mr-0 object-cover" src={outfit_img} alt="" />
+              <a className="block md:w-32 h-32 border border-transparent hover:border-gray-400" target="_blank" href={hangerInCloset.outfit.bottom.zalando_link}>
+                <img className="w-full h-full p-1 lg:p-0 mr-2 lg:mr-0 object-cover" src={hangerInCloset.outfit.bottom.bottom_img} alt="" />
               </a>
-              <a className="block md:w-32 h-32 border border-transparent hover:border-gray-400" href="#">
- 				<img className="w-full h-full p-1 lg:p-0 mr-2 lg:mr-0 object-cover" src={outfit_img} alt="" />
+              <a className="block md:w-32 h-32 border border-transparent hover:border-gray-400" target="_blank" href={hangerInCloset.outfit.shoe.zalando_link}>
+ 				<img className="w-full h-full p-1 lg:p-0 mr-2 lg:mr-0 object-cover" src={hangerInCloset.outfit.shoe.shoe_img} alt="" />
               </a>
+              </>)
+              :
+              (null)}
             </div>
           </div>
 
