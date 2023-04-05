@@ -1,6 +1,6 @@
 import { useState } from "react";
-import PopUpFeedCloset from "./PopUpFeedCloset";
-import UpdateOutfitInCloset from "./UpdateOutfitInCloset";
+import PopUpClosetNew from "./PopUpClosetNew";
+// import UpdateOutfitInCloset from "./UpdateOutfitInCloset";
 
 export default function ClosetCard({ user, onUpdateOutfitInCloset, setHangersInCloset, hangerInCloset }) {
  
@@ -12,12 +12,14 @@ const [model, setModel] = useState(false)
     user.id === hangerInCloset.user_id ? 
     (<li className="w-1/2 md:w-1/3 xl:w-1/4 2xl:w-1/5 p-4" >
                  {model ? (
-            <PopUpFeedCloset
+                  <div className="static">
+            <PopUpClosetNew
             user={user}
             hangerInCloset={hangerInCloset}
             onUpdateOutfitInCloset={onUpdateOutfitInCloset}
             setHangersInCloset={setHangersInCloset}
              />
+             </div>
               )
             :
             null}

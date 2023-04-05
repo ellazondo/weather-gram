@@ -3,7 +3,7 @@ import React from "react";
 
 export default function OutfitListAll ({ outfits, onAddHanger, user }) {
     return (
-        <ul className="cards">
+        <ul className="flex flex-wrap">
       {outfits.map((outfit) => {
         return (
           <OutfitCard

@@ -47,15 +47,34 @@ export default function UpdateOutfitInCloset ( {hangerInCloset, id, onUpdateOutf
 					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, name: e.target.value})}/>
               </div>
 
-              <div className="relative group px-4 pt-2.5 pb-2 mb-4 bg-gray-50 rounded-lg">
+
+
+
+              {/* <div className="relative group px-4 pt-2.5 pb-2 mb-4 bg-gray-50 rounded-lg">
  				<input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 
 					type="text"
 					name="temp"
 					step="0.01" 
 					placeholder="new temp °C"
-		   value={updatedOutfitInCloset.temp}
+		      value={updatedOutfitInCloset.temp}
           	onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, temp: parseFloat(e.target.value)})}/>
+              </div> */}
+
+              <div className="relative group px-4 pt-2.5 pb-2 mb-4 bg-gray-50 rounded-lg">
+                <input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg"
+                  type="string"
+                  name="temp"
+                  step="0.01"
+                  placeholder="temp °C, exp: 25-30"
+                  value={updatedOutfitInCloset.temp}
+                  min="0"
+                  max="35"
+                  onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, temp: parseFloat(e.target.value)})}
+              />
               </div>
+
+
+
 
           {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
 				<input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 
