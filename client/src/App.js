@@ -213,7 +213,7 @@ export default function App() {
             
           </Route>
           <Route path="/users">
-            {user ? <Users wgUsers={wgUsers} /> : "Please log in to see the users of Weather Gram"}
+            {user ? <Users wgUsers={wgUsers} outfits={outfits} /> : "Please log in to see the users of Weather Gram"}
           </Route>
           <Route path="/outfitinspo">
             {user ? <OutfitInspo outfits={outfits} user={user} /> : "Please log in to see outfit inspiration"}
@@ -222,7 +222,7 @@ export default function App() {
             {user ? <OutfitBreakdown outfits={outfits} user={user} /> : "Please log in to shop the looks"}
           </Route>
           <Route path="/mycloset">
-            {user ? <MyCloset user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : <Home />}
+            {user ? <MyCloset wgUsers={wgUsers} user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : <Home />}
           </Route>
         </Switch>
         </header>

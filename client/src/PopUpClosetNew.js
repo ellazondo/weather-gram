@@ -1,9 +1,22 @@
 import UpdateOutfitInCloset from "./UpdateOutfitInCloset";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function PopUpClosetNew ({ user, hangerInCloset, onUpdateOutfitInCloset, setHangersInCloset }) {
+export default function PopUpClosetNew ({ wgUsers, user, hangerInCloset, onUpdateOutfitInCloset, setHangersInCloset }) {
     const [modal, setmodal] = useState(false)
-    console.log('popup closet', hangerInCloset)
+    const [popUpProfilePic, setPopUpProfilePic] = useState("");
+    
+    console.log('tring to find username', hangerInCloset.outfit.created_by)
+    
+useEffect(() => {
+    wgUsers.filter((wgUser) => {
+      if (hangerInCloset.outfit.created_by === wgUser.username) {
+        setPopUpProfilePic(wgUser.profile_pic);
+      }
+    })
+}, [])
+
+
+    
     
     
 
@@ -66,7 +79,8 @@ return (
           <div className="md:w-full lg:w-1/4 px-1 mb-2 lg:mb-0">
             <div className="flex lg:flex-col lg:h-full justify-between">
               <a className="block md:w-32 h-32 border border-blue-300" href="#">
-                <img className="w-full h-full p-1 lg:p-0 mr-2 lg:mr-0 object-cover" src={outfit_img} alt="" />
+
+                <img className="w-full h-full p-1 lg:p-0 mr-2 lg:mr-0 object-cover" src={popUpProfilePic} alt="" />
               </a>
               { hangerInCloset.outfit.top ? 
               (<>
@@ -123,9 +137,9 @@ return (
         <div>
           <div className="mb-10 pb-10 border-b">
             <span className="text-gray-500">{name}</span>
-            <h2 className="mt-2 mb-6 max-w-xl text-5xl md:text-6xl font-bold font-heading">@{created_by}</h2>
+            <h2 className="mt-2 mb-6 max-w-xl text-5xl md:text-5xl font-bold font-heading">@{created_by}</h2>
             
-
+            <p className="italic max-w-sm text-gray-400">Suggested temperature range:</p>
             <p className="inline-block mb-8 text-2xl font-bold font-heading text-blue-300">
               <span>{temp_range}°C</span>
               
@@ -146,7 +160,7 @@ return (
 		{user.username === hangerInCloset.outfit.created_by ?
           (<>
 			<div className="flex flex-wrap mb-14 items-center">
-            <div onClick={handleDeleteOutfit} className="w-full lg:w-1/2"><a className="block mb-4 lg:mb-0 lg:mr-6 bg-orange-300 hover:bg-orange-400 text-center text-white font-bold font-heading py-5 px-8 rounded-md uppercase transition duration-200" href="#">Delete From Gram</a></div>
+            <div onClick={handleDeleteOutfit} className="w-full lg:w-1/2"><a className="block mb-4 mt-2 lg:mb-0 lg:mr-6 bg-orange-300 hover:bg-orange-400 text-center text-white font-bold font-heading py-5 px-8 rounded-md uppercase transition duration-200" href="#">Delete From Gram</a></div>
             <div onClick={() => setmodal(!modal)} className="w-full lg:w-1/2">
               <a className="flex-shrink-0 flex w-full flex-wrap items-center justify-center w-16 h-16 rounded-md border hover:border-gray-500" href="#">
                 <svg className="-mt-1 mr-2" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -3,15 +3,15 @@ import UserListAll from "./UserListAll";
 import SearchWGUser from "./SearchWGUser";
 
 
-export default function Users({ wgUsers }) {
+export default function Users({ wgUsers, outfits }) {
   const [searchTerm, setSearchTerm] = useState("");
-  console.log(wgUsers)
+  // console.log(wgUsers)
 
 
   const displayedUsers = wgUsers.filter((wgUser) => {
     return wgUser.username.includes(searchTerm);
   });
-  console.log('searched username', searchTerm)
+  // console.log('searched username', searchTerm)
 
   return (
    <>
@@ -31,6 +31,8 @@ export default function Users({ wgUsers }) {
     <div class="flex flex-wrap -mx-3 mb-20">
       <UserListAll
         wgUsers={displayedUsers}
+        outfits={outfits}
+
       />
       </div>
 
