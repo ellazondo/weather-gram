@@ -2,7 +2,7 @@ class CreateOutfits < ActiveRecord::Migration[6.1]
   def change
     create_table :outfits do |t|
       t.string :name
-      t.integer :temp
+      t.string :temp_range
       t.boolean :rain
       t.string :occasion
       t.string :city

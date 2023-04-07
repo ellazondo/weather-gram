@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 
-export default function NewOutfitForm({ onAddOutfit }) {
+export default function NewOutfitForm({ onAddOutfit, user }) {
   const [newOutfitName, setNewOutfitName] = useState("");
   const [newOutfitImage, setNewOutfitImage] = useState("");
   const [newOutfitTemp, setNewOutfitTemp] = useState("");
   const [newOutfitRain, setNewOutfitRain] = useState("");
   const [newOutfitOccasion, setNewOutfitOccasion] = useState("");
   const [newOutfitCity, setNewOutfitCity] = useState("");
-  const [newOutfitCreatedBy, setNewOutfitCreatedBy] = useState("");
+  // const [newOutfitCreatedBy, setNewOutfitCreatedBy] = useState("");
+  console.log(newOutfitTemp)
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,12 +19,12 @@ export default function NewOutfitForm({ onAddOutfit }) {
       },
       body: JSON.stringify({
         name: newOutfitName,
-        temp: newOutfitTemp,
+        temp_range: newOutfitTemp,
         rain: newOutfitRain,
         occasion: newOutfitOccasion,
         city: newOutfitCity,
         outfit_img: newOutfitImage,
-        created_by: newOutfitCreatedBy,
+        created_by: user.username,
 
         
 
@@ -55,16 +56,18 @@ export default function NewOutfitForm({ onAddOutfit }) {
 
 <div className="relative group px-4 pt-2.5 pb-2 mb-4 bg-gray-50 rounded-lg">
       <input
-          type="number"
+          type="string"
           name="temp"
           step="0.01"
-          placeholder="Temperature °C"
+          placeholder="temp °C, exp: 25-30"
           value={newOutfitTemp}
-          onChange={(e) => setNewOutfitTemp(parseFloat(e.target.value))}
+          min="0"
+          max="35"
+          onChange={(e) => setNewOutfitTemp((e.target.value))}
         />
         </div>
 
-        <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+        {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
         <input
           type="text"
           name="rain"
@@ -72,9 +75,21 @@ export default function NewOutfitForm({ onAddOutfit }) {
           value={newOutfitRain}
           onChange={(e) => setNewOutfitRain(e.target.value)}
         />
-</div>
+</div> */}
 
-        <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+<div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+       <select
+        id="search"
+        // value={searchRain}
+        onChange={(e) => setNewOutfitRain(e.target.value)}
+      >
+        <option value="">Rain?</option>
+        <option value="true">True</option>
+        <option value="false">False</option>
+        </select>
+        </div>
+
+        {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
         <input
           type="text"
           name="occasion"
@@ -82,6 +97,23 @@ export default function NewOutfitForm({ onAddOutfit }) {
           value={newOutfitOccasion}
           onChange={(e) => setNewOutfitOccasion(e.target.value)}
         />
+        </div> */}
+
+      <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+        <select
+        id="search"
+        onChange={(e) => setNewOutfitOccasion(e.target.value)}
+      >
+        <option value="">Occasion</option>
+        <option value="Streetwear">Streetwear</option>
+        <option value="Sporty">Sporty</option>
+        <option value="Brunch">Brunch</option>
+        <option value="Dinner Party">Dinner Party</option>
+        <option value="Going Out">Going Out</option>
+        <option value="Festival">Festival</option>
+        <option value="Wedding">Wedding</option>
+
+        </select>
         </div>
         
         
@@ -106,7 +138,7 @@ export default function NewOutfitForm({ onAddOutfit }) {
         />
         </div>
         
-        <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+        {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
         <input
           type="text"
           name="created_by"
@@ -114,7 +146,7 @@ export default function NewOutfitForm({ onAddOutfit }) {
           value={newOutfitCreatedBy}
           onChange={(e) => setNewOutfitCreatedBy(e.target.value)}
         />
-        </div>
+        </div> */}
 
                       <div className="text-center">
                 <a className="group relative inline-block h-16 mb-8 w-full md:w-44 bg-blueGray-900 rounded" >
@@ -128,6 +160,26 @@ export default function NewOutfitForm({ onAddOutfit }) {
 
         </div>
       </form>
+
+       <button class="inline-flex items-center font-base font-semibold px-10 mt-10">
+                <span class="mr-2 text-white">exit</span>
+                <div class="relative transition duration-500 animate-pulse text-white">
+                  <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.00193 0.666626L0.0585938 1.60996L3.78193 5.33329L4.50195 5.99996L3.78193 6.66663L0.0585938 10.39L1.00193 11.3333L6.33526 5.99996L1.00193 0.666626Z" fill="currentColor"></path>
+                  </svg>
+                  <div class="absolute top-0 right-0 -mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.00193 0.666626L0.0585938 1.60996L3.78193 5.33329L4.50195 5.99996L3.78193 6.66663L0.0585938 10.39L1.00193 11.3333L6.33526 5.99996L1.00193 0.666626Z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                  <div class="absolute top-0 right-0 -mr-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.00193 0.666626L0.0585938 1.60996L3.78193 5.33329L4.50195 5.99996L3.78193 6.66663L0.0585938 10.39L1.00193 11.3333L6.33526 5.99996L1.00193 0.666626Z" fill="currentColor"></path>
+                    </svg>
+                  </div>
+                </div>
+              </button>
+
       </div>
 
 

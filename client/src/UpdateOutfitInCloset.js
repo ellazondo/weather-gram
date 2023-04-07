@@ -3,6 +3,7 @@ import { useState } from 'react';
 export default function UpdateOutfitInCloset ( {hangerInCloset, id, onUpdateOutfitInCloset} ) {
   const { name, outfit_img } = hangerInCloset.outfit || {};
     const [updatedOutfitInCloset, setUpdatedOutfitInCloset] = useState({})
+    console.log(hangerInCloset)
 
     
     function handleUpdateOutfitInCloset(e, id) {
@@ -46,33 +47,84 @@ export default function UpdateOutfitInCloset ( {hangerInCloset, id, onUpdateOutf
 					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, name: e.target.value})}/>
               </div>
 
-              <div className="relative group px-4 pt-2.5 pb-2 mb-4 bg-gray-50 rounded-lg">
+
+
+
+              {/* <div className="relative group px-4 pt-2.5 pb-2 mb-4 bg-gray-50 rounded-lg">
  				<input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 
 					type="text"
 					name="temp"
 					step="0.01" 
 					placeholder="new temp °C"
-		   value={updatedOutfitInCloset.temp}
+		      value={updatedOutfitInCloset.temp}
           	onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, temp: parseFloat(e.target.value)})}/>
+              </div> */}
+
+              <div className="relative group px-4 pt-2.5 pb-2 mb-4 bg-gray-50 rounded-lg">
+                <input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg"
+                  type="string"
+                  name="temp"
+                  step="0.01"
+                  placeholder="temp °C, exp: 25-30"
+                  value={updatedOutfitInCloset.temp}
+                  min="0"
+                  max="35"
+                  onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, temp: parseFloat(e.target.value)})}
+              />
               </div>
 
-          <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+
+
+
+          {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
 				<input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 
 					type="text" 
 					name="rain"
 					placeholder="raining? true/false" 
 					value={updatedOutfitInCloset.rain} 
 					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, rain: e.target.value})}/>
-              </div>
+              </div> */}
 
-              <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+          <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+            <select
+              id="search"
+              onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, rain: e.target.value})}
+            >
+              <option value="">Rain?</option>
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
+	        </div>
+
+
+
+              {/* <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
 				<input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 
 					type="text" 
 					name="occasion"
 					placeholder="occasion" 
 					value={updatedOutfitInCloset.occasion} 
 					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, occasion: e.target.value})}/>
-              </div>
+              </div> */}
+
+
+          <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+            <select
+              id="search"
+              onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, occasion: e.target.value})}
+            >
+              <option value="">Occasion</option>
+              <option value="Streetwear">Streetwear</option>
+              <option value="Sporty">Sporty</option>
+              <option value="Brunch">Brunch</option>
+              <option value="Dinner Party">Dinner Party</option>
+              <option value="Going Out">Going Out</option>
+              <option value="Festival">Festival</option>
+              <option value="Wedding">Wedding</option>
+            </select>
+          </div>
+
+
 
               <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
 				<input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 
@@ -92,13 +144,13 @@ export default function UpdateOutfitInCloset ( {hangerInCloset, id, onUpdateOutf
 					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, outfit_img: e.target.value})}/>
               </div>
 
-              <div className="relative group px-4 pt-2.5 pb-2 mb-2 bg-gray-50 rounded-lg">
+              <div className="invisible">
 				<input className="w-full bg-transparent text-base placeholder-blueGray-900 font-semibold outline-none rounded-lg" 
 					type="text" 
 					name="created_by"
 					placeholder="username" 
 					value={updatedOutfitInCloset.created_by} 
-					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, created_by: e.target.value})}/>
+					onChange={(e) => setUpdatedOutfitInCloset({...updatedOutfitInCloset, created_by: hangerInCloset.outfit.created_by})}/>
               </div>
 
               <div className="text-center">

@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import "./Weather.css";
 import axios from "axios";
 import Fashion from "./Fashion";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Feed({ outfits, onAddHanger, user }) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState("New York");
 
+
+  //daily weather
   function handleResponse (response) {
-    
+    console.log('feed', response.data)
     setWeatherData({
-      
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -26,10 +29,16 @@ export default function Feed({ outfits, onAddHanger, user }) {
   }
 
   function search() {
-    const apiKey = "7e51999498b98449960c3d517772a9e2";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
+
+    const apiKey = "1a2b7258ebd456c01aef9175dfe8b709";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     axios.get(apiUrl).then(handleResponse);
+ 
   }
+
+  useEffect(() => {
+    search();
+  }, [])
   
 
   function handleSubmit(e) {
@@ -42,10 +51,14 @@ export default function Feed({ outfits, onAddHanger, user }) {
     setCity(e.target.value);
   }
 
-  if (ready) {
+  // if (ready) {
     return (
       <>
-      <form onSubmit={handleSubmit}>
+      <h1 class="font-mono text-neutral-200 text-5xl xs:text-8xl sm:text-9xl xl:text-10xl 2xl:text-11xl font-semibold mb-5 mt-5 mr-8 text-right" >
+            {/* <span class="inline-block max-w-md">Today's</span> */}
+            <span class="inline center">Weather Gram</span>
+          </h1>
+      <form className="text-right mr-8" onSubmit={handleSubmit}>
             <input
               type="search"
               placeholder="Enter a city"
@@ -54,19 +67,37 @@ export default function Feed({ outfits, onAddHanger, user }) {
               onChange={handleCityChange}
             />
           
-            <input type="submit" value="search" className="btn btn-primary w-100" />
+            <input 
+            type="submit" value="search" className="btn btn-primary w-100" />
           
        
       </form>
-      <div  className="flex justify-center items-start gap-y-5">
-      <WeatherInfo data={weatherData} />
-      <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
+      {ready ? (
+        <>
+        <div className="flex w-8/12 justify-center mx-auto" style={{backgroundImage: `url("https://shuffle.dev/suncealand-assets/background/background-color-paint.png")` }}>
+      <div className="flex items-center justify-center w-full text-gray-700 p-10 rounded" >
+      <WeatherInfo 
+      // weatherData={weatherData}
+      
+      data={weatherData} 
+      coordinates={weatherData.coordinates} 
+      />
       </div>
+          <div className="flex items-center w-full justify-center text-gray-700 p-10 rounded">
+      <WeatherForecast data={weatherData} coordinates={weatherData.coordinates}  />
+      </div>
+      </div>
+      
+      <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
+      
+  
       </>
+      ) : (
+         "loading..."
+    )}
+    </>
+
     );
-  } else { 
-    search();
-    return ("loading...");
+    
   }
   
-}

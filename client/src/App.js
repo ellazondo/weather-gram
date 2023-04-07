@@ -10,6 +10,7 @@ import NavBar from './NavBar';
 import LoggedOutNavBar from './LoggedOutNavBar';
 import MyCloset from './MyCloset';
 import Home from './Home';
+import OutfitBreakdown from './OutfitBreakdown';
 
 
 export default function App() {
@@ -130,7 +131,6 @@ export default function App() {
 
 //this is in response to filling out and submiting a new outfit form
 //It will add the outfit to /todaysfeed
-//adding it to /mycloset isn't working
   function onAddOutfit(newOutfit) {
     console.log('new outfit', newOutfit)
     const updatedOutfitArray = [...outfits, newOutfit];
@@ -146,7 +146,7 @@ export default function App() {
       })
     })
   .then(r=> r.json())
-  .then((newHanger) => setHangersInCloset([...hangersInCloset, newHanger]))
+  .then((newHanger) => console.log([...hangersInCloset, newHanger]))
     
   }
 
@@ -174,6 +174,7 @@ export default function App() {
           user ?
           <>
             <NavBar user={user} onLogout={onLogout}/>
+            
 
             <br/>
             
@@ -193,7 +194,8 @@ export default function App() {
           <Route path="/login">
             {
               user ?
-              <Home />  : 
+              <Home />
+                : 
               <Login onLogin={onLogin} updateLoginFormData={updateLoginFormData}  />
             }
           </Route>
@@ -205,16 +207,22 @@ export default function App() {
             }
           </Route>
           <Route path="/todaysfeed">
-            {user ?  <Feed outfits={outfits} onAddHanger={handleAddHanger} user={user} /> : "Please log in to view today's feed"}
+            {user ?  
+            
+            <Feed outfits={outfits} onAddHanger={handleAddHanger} user={user} /> : "Please log in to view today's feed"}
+            
           </Route>
           <Route path="/users">
-            {user ? <Users wgUsers={wgUsers} /> : "Please log in to see the users of Weather Gram"}
+            {user ? <Users wgUsers={wgUsers} outfits={outfits} /> : "Please log in to see the users of Weather Gram"}
           </Route>
           <Route path="/outfitinspo">
             {user ? <OutfitInspo outfits={outfits} user={user} /> : "Please log in to see outfit inspiration"}
           </Route>
+          <Route path="/outfitbreakdown">
+            {user ? <OutfitBreakdown outfits={outfits} user={user} /> : "Please log in to shop the looks"}
+          </Route>
           <Route path="/mycloset">
-            {user ? <MyCloset user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "Please log in to access your closet"}
+            {user ? <MyCloset wgUsers={wgUsers} user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : <Home />}
           </Route>
         </Switch>
         </header>

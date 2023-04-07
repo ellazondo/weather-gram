@@ -1,83 +1,111 @@
+
 import FormattedDate from './FormattedDate';
 import WeatherIcon from "./WeatherIcon";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
 
 export default function WeatherInfo (props) {
-    console.log(props.data.icon)
-    return (
-        <div className="border-2 rounded-md min-h-0 flex items-center justify-left">
-            <div className="flex flex-col bg-white rounded p-4 w-full max-w-xs">
-				<div className="font-bold text-xl">{props.data.city}</div>
-				<div className="text-sm text-gray-500"><FormattedDate date={props.data.date} /></div>
-				<div className="mt-6 text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-24 w-24">
-                    <WeatherIcon code={props.data.icon} />
-				</div>
-					<div className="flex flex-row items-center justify-center mt-6">
-							<div className="font-medium text-6xl">{Math.round(props.data.temperature)}</div>
-							<div className="flex flex-col items-center ml-6">
-								<div>{props.data.description}</div>
-								<div className="mt-1">
-									<span className="text-sm"><i className="far fa-long-arrow-up"></i></span>
-									<span className="text-sm font-light text-gray-500">28°C</span>
-								</div>
-								<div>
-									<span className="text-sm"><i className="far fa-long-arrow-down"></i></span>
-									<span className="text-sm font-light text-gray-500">20°C</span>
-								</div>
-							</div>
-						</div>
-						<div className="flex flex-row justify-between mt-6">
-							<div className="flex flex-col items-center">
-								<div className="font-medium text-sm">Wind</div>
-								<div className="text-sm text-gray-500">{props.data.wind} k/h</div>
-							</div>
-							<div className="flex flex-col items-center">
-								<div className="font-medium text-sm">Humidity</div>
-								<div className="text-sm text-gray-500">{props.data.humidity} %</div>
-							</div>
-							<div className="flex flex-col items-center">
-								<div className="font-medium text-sm">Precipitation</div>
-								<div className="text-sm text-gray-500">{props.data.precipitation}km</div>
-							</div>
-						</div>
-					</div>
-</div>
-        
+  console.log('props WeatherInfo', props.data.date)
 
+        
+    
+        return (
+    
+        <div  className="w-full max-w-screen-sm bg-white p-10 rounded-xl ring-8 ring-white ring-opacity-40">
+
+    <div  className="flex justify-between">
+
+      <div  className="flex flex-col">
+        <span  className="text-6xl font-bold">{Math.round(props.data.temperature)}°C</span>
+        <span  className="text-3xl font-semibold mt-1 text-gray-500">{props.data.city}</span>
+        <span  className="italic text-gray-500">
+        <FormattedDate date={props.data.date} /></span>
+      </div>
+
+      <div   className="text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-24 w-24">
+      {/* <svg  className="h-24 w-24 fill-current text-yellow-400" height="24" viewBox="0 0 24 24" width="24"> */}
+      <WeatherIcon code={props.data.icon} />
+      
+      <span  className="flex italic text-gray-500">{props.data.description}</span>
+      </div>
+      
+      
+    </div>
+
+ {/* beginning of weather forecast     */}
+
+ {/* <div  className="flex justify-between mt-12"> */}
+
+ 
+{/* first */}
+        {/* <div  className="flex flex-col items-center"> */}
+        {/* <div className="inline">
+        <span  className="font-semibold text-lg">{Math.round(weatherForecast[0].main.temp_min)} </span>
+        <span  className="text-lg">
+        | {Math.round(weatherForecast[0].main.temp_max)}°C </span>
+        </div> */}
+        {/* <div   className="mt-3 mb-3 text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-10 w-10">
+      <WeatherIcon code={props.data.icon} />
+      </div> */}
+        {/* <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495l1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115l1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96l1.41 1.41 1.79-1.8-1.41-1.41z"/></svg> */}
+        {/* <span  className="font-semibold mt-1 text-sm">
+          <FormattedDate date={props.data.date} />
+        </span>
+        <span  className="text-xs font-semibold text-gray-400"></span>
+      </div> */}
+{/* second */}
+      {/* <div  className="flex flex-col items-center"> */}
+        {/* <div className="inline">
+        <span  className="font-semibold text-lg">{Math.round(weatherForecast[1].main.temp_min)} </span>
+        <span  className="text-lg">
+        | {Math.round(weatherForecast[1].main.temp_max)}°C </span>
+        </div> */}
+      {/* <div   className="mt-3 mb-3 text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-10 w-10">
+      <WeatherIcon code={weatherForecast.weather.icon} />
+      </div> */}
+        {/* <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495l1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115l1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96l1.41 1.41 1.79-1.8-1.41-1.41z"/></svg> */}
+        {/* <span  className="font-semibold mt-1 text-sm">1:00</span>
+        <span  className="text-xs font-semibold text-gray-400"></span>
+      </div>
+
+      <div  className="flex flex-col items-center"> */}
+        {/* <div className="inline">
+        <span  className="font-semibold text-lg">{Math.round(weatherForecast[2].main.temp_min)} </span>
+        <span  className="text-lg">
+        | {Math.round(weatherForecast[2].main.temp_max)}°C </span>
+        </div> */}
+        {/* <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79zM1 10.5h3v2H1zM11 .55h2V3.5h-2zm8.04 2.495l1.408 1.407-1.79 1.79-1.407-1.408zm-1.8 15.115l1.79 1.8 1.41-1.41-1.8-1.79zM20 10.5h3v2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm-1 4h2v2.95h-2zm-7.45-.96l1.41 1.41 1.79-1.8-1.41-1.41z"/></svg>
+        <span  className="font-semibold mt-1 text-sm">1:00</span>
+        <span  className="text-xs font-semibold text-gray-400"></span>
+      </div> */}
+
+      {/* <div  className="flex flex-col items-center">
+        <span  className="font-semibold text-lg">32°C</span>
+        <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12.01 6c2.61 0 4.89 1.86 5.4 4.43l.3 1.5 1.52.11c1.56.11 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3h-13c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.95 6 12.01 6m0-2C9.12 4 6.6 5.64 5.35 8.04 2.35 8.36.01 10.91.01 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96C18.68 6.59 15.65 4 12.01 4z"/></svg>
+        <span  className="font-semibold mt-1 text-sm">3:00</span>
+        <span  className="text-xs font-semibold text-gray-400">PM</span>
+      </div> */}
+
+      {/* <div  className="flex flex-col items-center">
+        <span  className="font-semibold text-lg">31°C</span>
+        <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12.01 6c2.61 0 4.89 1.86 5.4 4.43l.3 1.5 1.52.11c1.56.11 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3h-13c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.95 6 12.01 6m0-2C9.12 4 6.6 5.64 5.35 8.04 2.35 8.36.01 10.91.01 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96C18.68 6.59 15.65 4 12.01 4z"/></svg>
+        <span  className="font-semibold mt-1 text-sm">5:00</span>
+        <span  className="text-xs font-semibold text-gray-400">PM</span>
+      </div>
+
+      <div  className="flex flex-col items-center">
+        <span  className="font-semibold text-lg">27°C</span>
+        <svg  className="h-10 w-10 fill-current text-gray-400 mt-3" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M19.78,17.51c-2.47,0-6.57-1.33-8.68-5.43C8.77,7.57,10.6,3.6,11.63,2.01C6.27,2.2,1.98,6.59,1.98,12 c0,0.14,0.02,0.28,0.02,0.42C2.61,12.16,3.28,12,3.98,12c0,0,0,0,0,0c0-3.09,1.73-5.77,4.3-7.1C7.78,7.09,7.74,9.94,9.32,13 c1.57,3.04,4.18,4.95,6.8,5.86c-1.23,0.74-2.65,1.15-4.13,1.15c-0.5,0-1-0.05-1.48-0.14c-0.37,0.7-0.94,1.27-1.64,1.64 c0.98,0.32,2.03,0.5,3.11,0.5c3.5,0,6.58-1.8,8.37-4.52C20.18,17.5,19.98,17.51,19.78,17.51z"/><path d="M7,16l-0.18,0C6.4,14.84,5.3,14,4,14c-1.66,0-3,1.34-3,3s1.34,3,3,3c0.62,0,2.49,0,3,0c1.1,0,2-0.9,2-2 C9,16.9,8.1,16,7,16z"/></g></g></svg>
+        <span  className="font-semibold mt-1 text-sm">7:00</span>
+        <span  className="text-xs font-semibold text-gray-400">PM</span>
+      </div>
+
+    </div> */}
+
+  </div>
       
     
       
     
     );
 }
-
-        // <div classNameName="WeatherInfo">
-            
-        //     <h1>{props.data.city}</h1>
-        //     <ul>
-        //         <li>
-        //             <FormattedDate date={props.data.date} /> </li>
-        //         <li classNameName="text-capitalize">{props.data.description}</li>
-        //     </ul>
-        //     <div classNameName="row mt-3">
-        //         <div classNameName="col-6">
-        //             <div classNameName="clearfix">
-        //             <div classNameName="float-left">
-        //             <WeatherIcon code={props.data.icon}  />
-                    
-        //                 <span classNameName="temperature">
-        //                     {Math.round(props.data.temperature)}  
-        //                     </span>
-        //                     <span classNameName="unit">°F</span>
-        //             </div>
-                    
-        //         </div>
-        //     </div>
-        //         <div classNameName="col-6">
-        //             <ul>
-        //                 <li>Percipitation: {props.data.precipitation} %</li>
-        //                 <li>Humidity: {props.data.humidity}%</li>
-        //                 <li>Wind: {props.data.wind} km/h</li>
-        //             </ul>
-        //         </div>
-        //     </div>
-        // </div>

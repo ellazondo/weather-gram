@@ -9,7 +9,7 @@ class OutfitsController < ApplicationController
 
     def show
         outfit = Outfit.find(params[:id])
-        render json: outfit
+        render json: outfit, serializer: OutfitBreakdownSerializer
     end
 
     def update
@@ -24,11 +24,17 @@ class OutfitsController < ApplicationController
         render json: new_outfit, status: :created
     end
 
+    def destroy
+        outfit = Outfit.find(params[:id])
+        outfit.destroy
+        head :no_content
+    end
+
    
     private
 
     def outfit_params
-        params.permit(:name, :temp, :rain, :occasion, :city, :outfit_img, :created_by)
+        params.permit(:name, :temp_range, :rain, :occasion, :city, :outfit_img, :created_by)
     end
 
     def render_not_found_response

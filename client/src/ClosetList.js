@@ -1,7 +1,7 @@
 import React from "react";
 import ClosetCard from "./ClosetCard";
 
-export default function ClosetList({ user, hangersInCloset, setHangersInCloset, onUpdateOutfitInCloset }) {
+export default function ClosetList({ wgUsers, user, hangersInCloset, setHangersInCloset, onUpdateOutfitInCloset }) {
   
   
   return (
@@ -14,6 +14,7 @@ export default function ClosetList({ user, hangersInCloset, setHangersInCloset, 
         return (
         
           <ClosetCard
+            wgUsers={wgUsers}
             user={user}
             key={hangerInCloset.id}
             hangerInCloset={hangerInCloset}

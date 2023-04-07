@@ -7,7 +7,7 @@ export default function Home () {
   <div class="relative pt-28 lg:pb-20 md:px-8 bg-yellowGray-50 overflow-hidden">
     <div class="hidden md:block absolute top-0 left-0 w-8 bg-white h-full border-r border-gray-900 z-10"></div>
     <div class="hidden md:block absolute top-0 right-0 w-8 bg-white h-full border-l border-gray-900 z-10"></div>
-    <img class="hidden lg:block animate-moveRight absolute top-0 right-0 w-48 xl:w-60 h-48 xl:h-60 mt-32 mr-60 xl:mr-112" src="https://yt3.googleusercontent.com/wrAoG6tscWKb2p0viI0dBbN0UsW6O39k_L2-YeQEmVJvgCx66DS3EakUcGs3pYCFNlbI8k2MWg=s900-c-k-c0x00ffffff-no-rj" alt="" />
+    <img class="hidden lg:block animate-moveRight absolute top-0 right-0 w-48 xl:w-60 h-48 xl:h-60 mt-32 mr-60 xl:mr-112" src="https://i.imgur.com/kE6Ouh1.jpeg" alt="" />
     <img class="hidden lg:block absolute top-0 right-0 w-48 xl:w-60 h-48 xl:h-60 mt-88 xl:mt-96 mr-40 xl:mr-52" src="https://uploads-ssl.webflow.com/5c9284aa898626230de35f1e/5d245db48107012ce29a0458_nederlandse-vrouwelijke-fashion-influencers-dna-278.jpeg" alt="" />
     <img class="hidden lg:block animate-moveBottom1 h-32 xl:h-44 w-32 xl:w-44 absolute bottom-0 right-0 mb-72 2xl:mb-80 mr-96 xl:mr-135 2xl:mr-142" src="https://cdn.mos.cms.futurecdn.net/qRJjvuoXd9Nhzh8DPmAeB8.jpg" alt="" />
     <img class="hidden lg:block absolute bottom-0 right-0 max-w-3xl 2xl:max-w-none" src="suncealand-assets/background/bg-circle-header.svg" alt="" />

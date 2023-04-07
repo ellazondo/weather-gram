@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import OutfitListAll from "./OutfitListAll";
 import Search from "./Search";
 
@@ -8,19 +8,30 @@ export default function OutfitInspo({ outfits, onAddHanger, user }) {
   const [searchCity, setSearchCity] = useState("");
   const [searchUsername, setSearchUsername] = useState("");
   const [searchRain, setSearchRain] = useState(false);
-  const [searchOccasion, setSearchOccasion] = useState("")
+  const [searchOccasion, setSearchOccasion] = useState("");
+  const [displayedOutfits, setDisplayedOutfits] = useState([]);
 
 
+useEffect(() => {
+  const filteredOutfits = outfits.filter((outfit) => {
+  const [minTemp, maxTemp] = outfit.temp_range.split('-');
+  const searchTermInt = parseInt(searchTerm);
+  return (
+    (outfit.city.toLowerCase().includes(searchCity.toLowerCase()) || searchCity === "")
+    && (outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) || searchUsername === "")
+    && (outfit.occasion.toLowerCase().includes(searchOccasion.toLowerCase()) || searchOccasion === "")
+    && (outfit.rain === (searchRain === "true") || searchRain === "")
+    && ((searchTermInt >= minTemp && searchTermInt <= maxTemp) || searchTerm === "")
+  );
+});
 
-  const displayedOutfits = outfits.filter((outfit) => {
-    console.log(outfit)
-    return outfit.temp.toString().includes(searchTerm.toString()) 
-    && outfit.city.toLowerCase().includes(searchCity.toLowerCase()) 
-    && outfit.created_by.toLowerCase().includes(searchUsername.toLowerCase()) 
-    && (searchOccasion === "" || outfit.occasion.toLowerCase() === searchOccasion.toLowerCase()) 
-    && (searchRain === "" || outfit.rain === (searchRain === "true"));
-  });
-  
+
+  setDisplayedOutfits(filteredOutfits);
+}, [searchTerm, searchCity, searchUsername, searchOccasion, searchRain, outfits]);
+
+useEffect(() => {
+  setDisplayedOutfits(outfits);
+}, [outfits]);
 
   return (
     <main>
@@ -40,3 +51,5 @@ export default function OutfitInspo({ outfits, onAddHanger, user }) {
     </main>
   );
 }
+
+  

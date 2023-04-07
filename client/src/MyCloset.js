@@ -2,7 +2,7 @@ import ClosetList from './ClosetList';
 import NewOutfitForm from './NewOutfitForm';
 import { useState } from 'react';
 
-export default function MyCloset({user, hangersInCloset, onAddOutfit, setHangersInCloset, onUpdateOutfitInCloset}) {
+export default function MyCloset({wgUsers, user, hangersInCloset, onAddOutfit, setHangersInCloset, onUpdateOutfitInCloset}) {
     const [model, setModel] = useState(false)
 
     return (
@@ -10,7 +10,7 @@ export default function MyCloset({user, hangersInCloset, onAddOutfit, setHangers
         <div className="group container px-4 mx-auto">
             {model ? (
                 <div className="relative">
-            <NewOutfitForm onAddOutfit={onAddOutfit} />
+            <NewOutfitForm onAddOutfit={onAddOutfit} user={user} />
             </div>
               )
             :
@@ -35,6 +35,7 @@ export default function MyCloset({user, hangersInCloset, onAddOutfit, setHangers
                 </div>
               </span>
         <ClosetList
+        wgUsers={wgUsers}
         user={user}
         key={hangersInCloset.id} 
         hangersInCloset={hangersInCloset}

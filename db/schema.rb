@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2023_03_15_164824) do
     t.string "bottom_name"
     t.string "bottom_img"
     t.string "zalando_link"
+    t.integer "outfit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -29,7 +30,7 @@ ActiveRecord::Schema.define(version: 2023_03_15_164824) do
 
   create_table "outfits", force: :cascade do |t|
     t.string "name"
-    t.integer "temp"
+    t.string "temp_range"
     t.boolean "rain"
     t.string "occasion"
     t.string "city"
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2023_03_15_164824) do
     t.string "shoe_name"
     t.string "shoe_img"
     t.string "zalando_link"
+    t.integer "outfit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(version: 2023_03_15_164824) do
     t.string "top_name"
     t.string "top_img"
     t.string "zalando_link"
+    t.integer "outfit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
