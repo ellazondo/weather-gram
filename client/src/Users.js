@@ -17,11 +17,11 @@ export default function Users({ wgUsers, outfits }) {
    <>
     <SearchWGUser setSearchTerm={setSearchTerm} />
 
-    <section class="py-20 md:py-40 bg-yellow-50 overflow-hidden">
+    <section class="py-10 md:py-22 bg-yellow-50 overflow-hidden">
         <div class="group container px-4 mx-auto">
-            <div class="max-w-4xl mx-auto mb-40 text-center">
-                <h1 class="text-5xl sm:text-7xl md:text-8xl font-heading font-semibold mb-12">Weather Grammers</h1>
-                <p class="max-w-xl mx-auto text-lg">Check out all of the users of Weather Gram.</p>
+            <div class="max-w-4xl mx-auto mb-10 text-center">
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-heading font-semibold text-gray">The Grammers</h1>
+                {/* <p class="max-w-xl mx-auto text-lg italic">Check out all of the users of Weather Gram.</p> */}
             </div>
         </div>
 

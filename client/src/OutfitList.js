@@ -5,7 +5,7 @@ export default function OutfitList({ outfits, weatherData, onAddHanger, user }) 
   // console.log(outfits)
   return (
     
-    <ul className="flex flex-wrap">
+    <ul className="flex flex-wrap justify-center">
       {outfits.map((outfit) => {
        
         let splitTemp = outfit.temp_range.split("-")

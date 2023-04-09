@@ -54,11 +54,27 @@ export default function Feed({ outfits, onAddHanger, user }) {
   // if (ready) {
     return (
       <>
-      <h1 class="font-mono text-neutral-200 text-5xl xs:text-8xl sm:text-9xl xl:text-10xl 2xl:text-11xl font-semibold mb-5 mt-5 mr-8 text-right" >
-            {/* <span class="inline-block max-w-md">Today's</span> */}
-            <span class="inline center">Weather Gram</span>
-          </h1>
-      <form className="text-right mr-8" onSubmit={handleSubmit}>
+
+  
+      {ready ? (
+        <>
+        <div className="flex w-8/12 justify-center mx-auto">
+      {/* <div className="grid grid-cols-2 gap-4"> */}
+      <div className="flex items-center justify-center w-full text-gray-700 rounded" >
+      <WeatherInfo 
+      // weatherData={weatherData}
+      
+      data={weatherData} 
+      coordinates={weatherData.coordinates} 
+      />
+      </div>
+          {/* <div className="flex items-center w-full justify-center text-gray-700 p-10 rounded">
+      <WeatherForecast data={weatherData} coordinates={weatherData.coordinates}  />
+      </div> */}
+      
+       </div>
+
+            <form className="text-right flex justify-center mt-2" onSubmit={handleSubmit}>
             <input
               type="search"
               placeholder="Enter a city"
@@ -72,24 +88,10 @@ export default function Feed({ outfits, onAddHanger, user }) {
           
        
       </form>
-      {ready ? (
-        <>
-        <div className="flex w-8/12 justify-center mx-auto" style={{backgroundImage: `url("https://shuffle.dev/suncealand-assets/background/background-color-paint.png")` }}>
-      <div className="flex items-center justify-center w-full text-gray-700 p-10 rounded" >
-      <WeatherInfo 
-      // weatherData={weatherData}
-      
-      data={weatherData} 
-      coordinates={weatherData.coordinates} 
-      />
-      </div>
-          <div className="flex items-center w-full justify-center text-gray-700 p-10 rounded">
-      <WeatherForecast data={weatherData} coordinates={weatherData.coordinates}  />
-      </div>
-      </div>
-      
+
+
       <Fashion outfits={outfits} weatherData={weatherData} onAddHanger={onAddHanger} user={user} />
-      
+     
   
       </>
       ) : (

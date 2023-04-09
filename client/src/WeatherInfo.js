@@ -11,22 +11,26 @@ export default function WeatherInfo (props) {
     
         return (
     
-        <div  className="w-full max-w-screen-sm bg-white p-10 rounded-xl ring-8 ring-white ring-opacity-40">
+        <div  className="max-w-screen-sm bg-white p-10 rounded-xl ring-8 ring-gray ring-opacity-50">
 
-    <div  className="flex justify-between">
+    <div  className="flex justify-evenly">
 
       <div  className="flex flex-col">
         <span  className="text-6xl font-bold">{Math.round(props.data.temperature)}°C</span>
         <span  className="text-3xl font-semibold mt-1 text-gray-500">{props.data.city}</span>
-        <span  className="italic text-gray-500">
-        <FormattedDate date={props.data.date} /></span>
+        {/* <span  className="italic text-gray-500"> */}
+        {/* <FormattedDate date={props.data.date} /></span> */}
+        <span  className="flex italic text-gray-500">{props.data.description}</span>
       </div>
 
-      <div   className="text-6xl self-center inline-flex items-center justify-center rounded-lg text-indigo-400 h-24 w-24">
+          
+
+
+      <div   className="inline-flex justify-right rounded-lg text-indigo-400 h-24 w-24">
       {/* <svg  className="h-24 w-24 fill-current text-yellow-400" height="24" viewBox="0 0 24 24" width="24"> */}
       <WeatherIcon code={props.data.icon} />
       
-      <span  className="flex italic text-gray-500">{props.data.description}</span>
+      {/* <span  className="flex italic text-gray-500">{props.data.description}</span> */}
       </div>
       
       
