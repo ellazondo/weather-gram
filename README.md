@@ -3,8 +3,8 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-[![Weather Gram Gif](http://img.youtube.com/vi/6HHQ9Ef_wE0/0.jpg)](https://www.youtube.com/watch?v=6HHQ9Ef_wE0)
-https://youtu.be/6HHQ9Ef_wE0
+![Alt Text](https://media.giphy.com/media/JdFT7Glb0g3sAoSBe9/giphy.gif)
+
 
 
 Things you may want to cover:
