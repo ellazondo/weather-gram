@@ -222,7 +222,7 @@ export default function App() {
             {user ? <OutfitBreakdown outfits={outfits} user={user} /> : "Please log in to shop the looks"}
           </Route>
           <Route path="/mycloset">
-            {user ? <MyCloset wgUsers={wgUsers} user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : <Home />}
+            {user ? <MyCloset wgUsers={wgUsers} user={user} hangersInCloset={hangersInCloset} onAddOutfit={onAddOutfit} setHangersInCloset={setHangersInCloset} onUpdateOutfitInCloset={handleUpdateOutfitInCloset} /> : "loading"}
           </Route>
         </Switch>
         </header>

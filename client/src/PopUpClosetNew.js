@@ -15,22 +15,7 @@ useEffect(() => {
     })
 }, [])
 
-
-    
-    
-    
-
     const { name, outfit_img, temp_range, rain, occasion, city, created_by } = hangerInCloset.outfit || {};
-
-    
-    // const { top_img, zalando_link } = hangerInCloset.outfit.top
-    // const { bottom_img } = hangerInCloset.outfit.bottom
-    // const { shoe_img } = hangerInCloset.outfit.shoe
-
-   
-
-    
-
 
       function handleDelete () {
       // console.log(id)
