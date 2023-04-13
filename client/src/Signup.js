@@ -4,23 +4,23 @@ export default function Signup({onSignup, updateSignupFormData}){
         <>
 
 <section className="relative overflow-x-hidden">
-  <div className="container p-40 mx-auto">
+  <div className="container p-62 mx-auto">
     <div className="flex flex-wrap items-center">
       <div className="w-full lg:w-2/6 px-4 mb-12 lg:mb-0">
         <div className="py-20 text-center">
-          <a className="inline-block mb-14 text-3xl font-bold font-heading" href="#">
+          <a className="inline-block mb-8 text-3xl font-bold font-heading" href="#">
             <img 
             className="h-9" 
-            src="https://i.imgur.com/0oK5L6N.png" 
+            src="https://i.imgur.com/ImxEQfI.png" 
             alt="" 
             width="auto" />
           </a>
-          <h3 className="mb-8 text-4xl md:text-5xl font-bold font-heading">WEATHER GRAM</h3>
+          <h3 className="mb-8 text-4xl md:text-5xl font-thin font-heading">WEATHER GRAM</h3>
           <form onSubmit={onSignup} >
             <input className="w-full mb-4 px-12 py-6 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text" name="username" placeholder="username" onChange={updateSignupFormData} />
             <input className="w-full mb-4 px-12 py-6 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="password" placeholder="Password" name="password" onChange={updateSignupFormData} />
-            <input className="w-full mb-4 px-12 py-6 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text" placeholder="Profile Pic Link" name="profile_pic" onChange={updateSignupFormData} />
-            <button className="mt-12 md:mt-16 bg-blue-800 hover:bg-blue-900 text-white font-bold font-heading py-5 px-8 rounded-md uppercase">SIGN UP</button>
+            <input className="w-full mb-0 px-12 py-6 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text" placeholder="Profile Pic Link" name="profile_pic" onChange={updateSignupFormData} />
+            <button className=" md:mt-8 bg-blue-800 hover:bg-blue-900 text-white font-bold font-heading py-5 px-8 rounded-md uppercase">SIGN UP</button>
           </form>
         </div>
         <img 

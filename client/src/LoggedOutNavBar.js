@@ -6,15 +6,12 @@ export default function LoggedOutNavBar(){
 <section class="bg-white">
   <nav>
     <div class="flex py-6 px-4 md:px-14 items-center">
-      <button class="flex w-14 h-14 mr-12 items-center justify-center navbar-burger border border-gray-50 hover:border-gray-500 transform hover:rotate-45 rounded-full transition duration-300">
-        <svg width="32" height="12" viewBox="0 0 32 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="2" fill="black"></rect><rect y="10" width="19" height="2" fill="black"></rect></svg>
-      </button>
-      <a class="inline-block relative w-10 h-10 rounded-full mr-4" href="#">
-        <img src="https://i.imgur.com/1ITyB86.png" alt="" />
+      <a class="inline-block relative w-32 h-10 rounded-full mr-4" href="#">
+        <img src="https://www.coolgenerator.com/Data/Textdesign/202304/0cc21873bb8953e3d8a2dd6f8b2c6685.png" alt="" />
       </a>
       <div class="hidden lg:flex items-center ml-auto">
         <div class="mr-12">
-          <ul class="hidden xl:flex items-center">
+          <ul class="hidden lg:flex items-center">
             {/* <li class="relative group mr-16">
               <button class="inline-block text-left text-base font-medium text-black">
                 <div class="flex items-center">

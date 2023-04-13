@@ -11,7 +11,7 @@ export default function WeatherInfo (props) {
     
         return (
     
-        <div  className="max-w-screen-sm bg-white p-10 rounded-xl ring-8 ring-gray ring-opacity-50">
+        <div  className="max-w-screen-sm bg-white p-10 ring-2 ring-gray ring-opacity-10">
 
     <div  className="flex justify-evenly">
 

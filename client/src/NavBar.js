@@ -6,15 +6,15 @@ export default function NavBar({user, onLogout}){
       <section class="bg-white">
   <nav>
     <div class="flex py-6 px-4 md:px-14 items-center">
-      <button class="flex w-14 h-14 mr-12 items-center justify-center navbar-burger border border-gray-50 hover:border-gray-500 transform hover:rotate-45 rounded-full transition duration-300">
+      {/* <button class="flex w-14 h-14 mr-12 items-center justify-center navbar-burger border border-gray-50 hover:border-gray-500 transform hover:rotate-45 rounded-full transition duration-300">
         <svg width="32" height="12" viewBox="0 0 32 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="2" fill="black"></rect><rect y="10" width="19" height="2" fill="black"></rect></svg>
-      </button>
-      <a class="inline-block relative max-w-md rounded-full mr-4" href="#">
-        <img src="https://i.imgur.com/UNxH0Z1.png" alt="" />
+      </button> */}
+      <a className="inline-block relative w-32 rounded-full mr-4" href="#">
+        <img src="https://www.coolgenerator.com/Data/Textdesign/202304/0cc21873bb8953e3d8a2dd6f8b2c6685.png" alt="" />
       </a>
       <div class="hidden lg:flex items-center ml-auto">
         <div class="mr-12">
-          <ul class="hidden xl:flex items-center">
+          <ul class="hidden lg:flex items-center">
             <li class="relative group mr-16">
               {/* <button class="inline-block text-left text-base font-medium text-black">
                 <div class="flex items-center">
@@ -28,11 +28,11 @@ export default function NavBar({user, onLogout}){
                 <div class="py-4 px-6 bg-white rounded-lg border-2 border-blueGray-900"><a class="block mb-2 text-xs" href="#">Link 1</a><a class="block mb-2 text-xs" href="#">Link 1</a><a class="block text-xs" href="#">Link 1</a></div>
               </div>
             </li>
-            <li class="mr-16"><a class="inline-block text-base font-medium text-black" href="#"><Link to="/todaysfeed">Today's Feed</Link></a></li>
+            <li class="mr-8"><a class="inline-block text-base font-thin text-black" href="/todaysfeed"><Link to="/todaysfeed">Today's Feed</Link></a></li>
             
-            <li class="mr-16"><a class="inline-block text-base font-medium text-black" href="#"><Link to="/outfitinspo">Inspo Page</Link></a></li>
+            <li class="mr-8"><a class="inline-block text-base font-thin text-black" href="/outfitinspo"><Link to="/outfitinspo">Inspo Page</Link></a></li>
             
-            <li><a class="inline-block text-base font-medium text-black" href="#"><Link to="/users">Users </Link></a></li>
+            <li class="-mr-5"><a class="inline-block text-base font-thin text-black" href="/users"><Link to="/users">Users </Link></a></li>
             
           </ul>
         </div>
@@ -74,12 +74,15 @@ export default function NavBar({user, onLogout}){
               <div class="pl-6"><a class="block mb-2 text-black" href="#">Link 1</a><a class="block mb-2 text-black" href="#">Link 1</a><a class="block text-black" href="#">Link 1</a></div>
             </div>  */}
           {/* </li> */}
-          {/* <li class="mb-6"><a class="inline-block text-base font-medium text-black" href="#">Community</a></li> */}
-          <Link to="/todaysfeed">Today's Feed</Link>
-          {/* <li class="mb-6"><a class="inline-block text-base font-medium text-black" href="#">Story</a></li> */}
-          <Link to="/outfitinspo">Inspo Page</Link>
-          {/* <li><a class="inline-block text-base font-medium text-black" href="#">Pricing</a></li> */}
-          <Link to="/users">Users </Link>
+          <li class="mb-6 font-thin"><a class="inline-block text-base font-medium text-black" href="#">Feed</a>
+          <Link to="/todaysfeed">Today's Feed</Link></li> 
+          
+          <li class="mb-6"><a class="inline-block text-base font-medium text-black" href="#">Inspo</a>
+          <Link to="/outfitinspo">Inspo Page</Link></li> 
+          
+          <li><a class="inline-block text-base font-medium text-black" href="#">Link</a>
+          <Link to="/users">Users </Link> </li> 
+          
         </ul>
         <div class="w-full">
           <a class="relative group inline-flex h-12 w-full mb-4 items-center justify-center font-semibold rounded-lg bg-white border border-black" href="#">
