@@ -54,7 +54,7 @@ return (
             null}
 
 {/* ******start of inserted shuffle */}
-<div className="absolute bg-white">
+<div className="absolute bg-white left-5">
 <section className="py-20">
   <div className="container mx-auto px-4">
  	<div className="flex flex-wrap -mx-4">

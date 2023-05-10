@@ -44,7 +44,7 @@ export default function NavBar({user, onLogout}){
             alt={user.username} />
             <div class="absolute bottom-0 right-0 -mr-px -mb-1 flex w-4 h-4 items-center justify-center rounded-full bg-indigo-500 text-white text-xs font-bold">{user.hangers?.length}</div>
           </div>
-          <span class="font-medium">{user.username}</span>
+          <span class="font-medium">@{user.username}</span>
         </a>
         <a class="relative group inline-flex h-12 w-24 items-center justify-center font-semibold rounded-lg bg-blue-500 overflow-hidden" onClick={onLogout}>
           <span class="relative z-10 text-black group-hover:text-white transition duration-500">Logout</span>

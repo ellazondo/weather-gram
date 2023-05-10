@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { Switch, Route } from "react-router-dom";
-import Feed from './Feed';
+import Feed2 from './Feed2';
 import Signup from './Signup';
 import Login from './Login';
 import Users from './Users';
@@ -132,7 +132,7 @@ export default function App() {
 //this is in response to filling out and submiting a new outfit form
 //It will add the outfit to /todaysfeed
   function onAddOutfit(newOutfit) {
-    console.log('new outfit', newOutfit)
+    // console.log('new outfit', newOutfit)
     const updatedOutfitArray = [...outfits, newOutfit];
     setOutfits(updatedOutfitArray); 
     fetch("http://localhost:3000/hangers" , {
@@ -209,7 +209,7 @@ export default function App() {
           <Route path="/todaysfeed">
             {user ?  
             
-            <Feed outfits={outfits} onAddHanger={handleAddHanger} user={user} /> : "Please log in to view today's feed"}
+            <Feed2 outfits={outfits} onAddHanger={handleAddHanger} user={user} /> : "Please log in to view today's feed"}
             
           </Route>
           <Route path="/users">

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Fashion from "./Fashion";
 import WeatherInfo from "./WeatherInfo";
-import WeatherForecast from "./WeatherForecast";
+// import WeatherForecast from "./WeatherForecast";
 
 export default function Feed({ outfits, onAddHanger, user }) {
   const [ready, setReady] = useState(false);

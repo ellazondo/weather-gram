@@ -35,10 +35,10 @@ export default function NewOutfitForm({ onAddOutfit, user }) {
   }
 
   return (
-        <div className="fixed top-0 left-0 right-0 w-full container mx-auto px-6 py-18 md:py-30 bg-white rounded-4xl ">
+        <div className="fixed top-0 left-0 right-0 w-full container mx-auto px-6 py-18 md:py-30 bg-white rounded-4xl mt-32 ">
       <div className="max-w-md mx-auto text-center">
       
-      <h2 className="font-heading font-semibold text-5xl mb-10">New Outfit</h2>
+      <h2 className="font-heading font-semibold text-5xl mb-10 mt-5">New Outfit</h2>
       
       <div className="max-w-md mx-auto">
       <form onSubmit={handleSubmit}>
@@ -151,7 +151,7 @@ export default function NewOutfitForm({ onAddOutfit, user }) {
                       <div className="text-center">
                 <a className="group relative inline-block h-16 mb-8 w-full md:w-44 bg-blueGray-900 rounded" >
                   <div className="absolute top-0 left-0 transform -translate-y-1 -translate-x-1 w-full h-full group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
-                    <div className="flex h-full w-full items-center justify-center bg-blue-500 border-2 border-blueGray-900 rounded">
+                    <div className="flex h-full w-full items-center justify-center bg-blue-500 border-2 border-blueGray-900 rounded mt-5">
         <button type="submit" className="text-base font-semibold uppercase">Add Outfit</button>
                            </div>
                   </div>
