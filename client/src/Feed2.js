@@ -5,7 +5,13 @@ import OutfitList2 from "./OutfitList2";
 import WeatherInfo2 from "./WeatherInfo2";
 // import WeatherForecast from "./WeatherForecast";
 
-export default function Feed2({ outfits, onAddHanger, user }) {
+export default function Feed2({
+  outfits,
+  onAddHanger,
+  user,
+  wgUsers,
+  hangersInCloset,
+}) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState("New York");
@@ -69,6 +75,8 @@ export default function Feed2({ outfits, onAddHanger, user }) {
                 weatherData={weatherData}
                 onAddHanger={onAddHanger}
                 user={user}
+                wgUsers={wgUsers}
+                hangersInCloset={hangersInCloset}
                 // handleSubmit={handleSubmit}
                 // setCity={setCity}
               />

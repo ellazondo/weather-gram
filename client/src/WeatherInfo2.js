@@ -67,13 +67,13 @@ export default function WeatherInfo2({
         <form className="rounded-full" onSubmit={handleSubmit}>
           <input
             type="search"
-            placeholder={data.city}
+            placeholder={` ${data.city}`}
             className="text-xl font-normal"
             autoFocus="on"
             onChange={handleCityChange}
           />
           <span className="">
-            <input type="submit" value="Search" className="text-sm ml-3" />{" "}
+            <input type="submit" value="search" className="text-sm ml-12" />{" "}
           </span>
         </form>
       </div>
